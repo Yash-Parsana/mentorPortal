@@ -6,6 +6,8 @@ import Tag from '../Common/Tag'
 import Button from 'react-bootstrap/Button';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+
 const BlogPage = () => {
 
     const tags = ['Machine Learning', 'Python', 'JavaScript']
@@ -31,9 +33,10 @@ const BlogPage = () => {
                         className='ms-3 mt-3'
                     >
                         <Row>
-                            <Col xs={12} md={9} className='d-flex justify-content-around' style={{ width: '30%' }}>
+                            <Col xs={12} md={9} className='d-flex justify-content-around' style={{ width: '38%' }}>
                                 <p class="card-text"><b>Author : </b><small class="text-muted">Jay Sojitra</small></p>
                                 <p class="card-text"><small class="text-muted">updated 11 hours ago </small></p>
+                                <p class="card-text text-end"><small >1.2 K</small> <ThumbUpIcon style={{ marginBottom: "6px" }} /></p>
                             </Col>
                             {/* <Col xs={6} md={3}>
                                 <p class="card-text"><small class="text-muted">updated 11 hours ago </small></p>

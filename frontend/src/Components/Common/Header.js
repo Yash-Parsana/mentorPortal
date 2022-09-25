@@ -11,13 +11,13 @@ export default function Header(props) {
       <div>
         <div className="main-container-header">
           <div style={{}}>
-            <NavLink className="nav-link" to="/project">
+            <NavLink className="nav-link" to="/">
               <div className="">
                 <img
                   src="img/nv1.jpg"
                   className="homeimg"
                   style={{ width: 70, height: 70, marginTop: "14px" }}
-
+                  alt =''
                 />
               </div>
             </NavLink>
@@ -81,7 +81,8 @@ export default function Header(props) {
                     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
 
                     className="w-110 h-110 rounded-circle"
-                    style={{ width: 70, height: 70, marginTop: "14px" }}
+                    // style={{ width: 70, height: 70, marginTop: "14px" }}
+                    style={{ width: 62, height: 62, marginTop: "0px" }}
                     height="100px"
                     alt=''
                   />
