@@ -258,7 +258,7 @@ tw-shadow-sm {
     font-weight: var(--bs-nav-link-font-weight);
     color: black !important;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 .nav-tabs .nav-link {
@@ -266,6 +266,7 @@ tw-shadow-sm {
     background: 0 0;
     margin: 4px;
     border: none;
+    /* font-weight: 600 !important; */
     /* border: var(--bs-nav-tabs-border-width) solid transparent; */
     border-radius: 11px;
 }

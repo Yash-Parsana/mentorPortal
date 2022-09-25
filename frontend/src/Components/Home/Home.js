@@ -76,7 +76,7 @@ export default function Home() {
     // }, []);
     return (
         <>
-            <Header index="1" />
+            <Header index={1} />
             <div className="container-search-box-title">Find, learn and grow</div>
             <div style={{ width: "100%" }}>
                 <div style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left" }}>

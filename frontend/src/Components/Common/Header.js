@@ -5,6 +5,7 @@ import "../GeneralCSS/main.css"
 
 export default function Header(props) {
   let index = props.index;
+  console.log('index', index);
   return (
     <>
       <div>
@@ -24,15 +25,14 @@ export default function Header(props) {
           <div>
             <div className="tab-container-header">
               <div className="tab-container">
-                <NavLink className=
-                  {(index == 1) ? "nav-link active" : "nav-link"} to="/">
+                <NavLink className={(index === 1) ? "nav-link active" : "nav-link"} to="/">
                   Find Mentor
                 </NavLink>
               </div>
 
 
               <div className="tab-container">
-                <NavLink className={(index == 3) ? "nav-link active" : "nav-link"} to="/blog">
+                <NavLink className={(index === 3) ? "nav-link active" : "nav-link"} to="/blog">
                   Blog
                 </NavLink>
               </div>

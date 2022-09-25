@@ -65,7 +65,7 @@ const Blogs = () => {
     ]
     return (
         <>
-            <Header index="3" />
+            <Header index={3} />
             <div className="d-flex justify-content-center flex-column mt-3">
                 {
                     data.map((blogs, i) => {
@@ -86,7 +86,7 @@ const Blogs = () => {
                                                 title={blogs.branch}
                                                 customeStyle={ToprightButton}
                                             />
-                                            <p class="card-text text-end"><small class="text-muted">{blogs.Like} K</small> <ThumbUpIcon style={{marginBottom: "6px"}} /></p>
+                                            <p class="card-text text-end"><small class="text-muted">{blogs.Like} K</small> <ThumbUpIcon style={{ marginBottom: "6px" }} /></p>
 
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 const BlogPage = () => {
 
-    const tags = ['Machine Learning', 'Python', 'Python', 'Python', 'Python', 'JavaScript']
+    const tags = ['Machine Learning', 'Python', 'JavaScript']
     const ToprightButton = {
         backgroundColor: "#D5F0E1",
         color: "#52B67D",
@@ -78,7 +78,7 @@ const BlogPage = () => {
                                         </Button>{' '}
                                     </div>
                                     <div className='d-flex mt-4'>
-                                        <h4 className='me-2'>Download : </h4>{' '}
+                                        <h4 className='me-2'>Resources : </h4>{' '}
                                         <Button variant="light" className='ms-5'>
                                             <div className='d-flex justify-content-center align-items-center'>
                                                 <ArrowDownwardIcon /> Download
