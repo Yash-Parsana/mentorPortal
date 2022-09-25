@@ -25,7 +25,7 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                {(index==1)? "nav-link active" : "nav-link" } to="/mentor">
+                {(index==1)? "nav-link active black" : "nav-link" } to="/mentor">
                   Find Mentor
                 </NavLink>
               </div>
