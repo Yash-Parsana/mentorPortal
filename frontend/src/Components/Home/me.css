@@ -104,6 +104,7 @@ margin-right: 1rem;
 .right
 {
     width: 180px;
+    flex-basis: 46%;
 }
 
 tw-shadow-sm {
@@ -195,6 +196,7 @@ tw-shadow-sm {
 /* <div class="tw-flex tw-items-center tw-rounded-md tw-border tw-border-neutral-100 tw-bg-neutral-50 tw-p-4 tw-text-xs tw-text-neutral-700"><svg viewBox="0 0 15 15" fill="none" class="tw-mr-2 tw-h-4 tw-w-4 tw-shrink-0"><path d="M13.242 1.172h-.703V0h-1.172v1.172H3.633V0H2.46v1.172h-.703A1.76 1.76 0 000 2.93v10.312C0 14.212.789 15 1.758 15h11.484A1.76 1.76 0 0015 13.242V2.93a1.76 1.76 0 00-1.758-1.758zm.586 12.07a.587.587 0 01-.586.586H1.758a.587.587 0 01-.586-.586V5.508h12.656v7.734zm0-8.906H1.172V2.93c0-.323.263-.586.586-.586h.703v1.172h1.172V2.344h7.734v1.172h1.172V2.344h.703c.323 0 .586.263.586.586v1.406z" fill="currentColor"></path><path d="M3.398 6.738H2.227V7.91h1.171V6.738zm2.344 0H4.57V7.91h1.172V6.738zm2.344 0H6.914V7.91h1.172V6.738zm2.344 0H9.258V7.91h1.172V6.738zm2.343 0h-1.171V7.91h1.171V6.738zM3.398 9.082H2.227v1.172h1.171V9.082zm2.344 0H4.57v1.172h1.172V9.082zm2.344 0H6.914v1.172h1.172V9.082zm2.344 0H9.258v1.172h1.172V9.082zm-7.032 2.344H2.227v1.172h1.171v-1.172zm2.344 0H4.57v1.172h1.172v-1.172zm2.344 0H6.914v1.172h1.172v-1.172zm2.344 0H9.258v1.172h1.172v-1.172zm2.343-2.344h-1.171v1.172h1.171V9.082z" fill="currentColor"></path></svg><span> Next available - Monday, October 10, 2022 3:30 PM IST </span></div> */
 .schedule{
     display: flex;
+    width: 252px;
     align-items: center;
     border-radius: 0.375rem;
     border-width: 1px;
@@ -268,4 +270,15 @@ tw-shadow-sm {
     border: none;
     /* border: var(--bs-nav-tabs-border-width) solid transparent; */
     border-radius: 11px;
+}
+
+.width-card-menter{
+    width: 1891px;
+    display: flex ;
+}
+.end{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 }

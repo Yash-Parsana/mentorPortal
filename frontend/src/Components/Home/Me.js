@@ -16,7 +16,7 @@ function Me() {
     
     <div className="popo">
     <div className="container">
-    <div className="row " style={{display:"flex",justifyContent:"center"}}>
+    <div className="row width-card-menter " >
     <div className="main-div mt-3 p-3 col-md-8 col-sm-6">
     <div className="row">
     <div class="tw-rounded-xl tw-bg-white tw-shadow-sm tw-relative tw-overflow-hidden tw-p-5">
