@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Components/GeneralCSS/main.css";
 import Home from './Components/Home/Home';
+import Studentlog from './loginsignup/login';
 
 function App() {
   return (
@@ -13,7 +14,10 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route index path="/" element={<Home/>} />
-    </Routes>
+    </Routes>  
+    <Routes>  
+    <Route index path="/slogin/" element={<Studentlog/>} />
+  </Routes>   
   </BrowserRouter>
     </div>
   );
