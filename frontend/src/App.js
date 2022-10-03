@@ -8,6 +8,8 @@ import BlogPage from './Components/Blog/BlogPage';
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
+import SignUp from './Components/SignUp/SignUp';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
       <Route index path="/blogpage" element={<BlogPage/>} />
       <Route index path="/addblog" element={<AddBlog/>} />
       <Route index path="/myblog" element={<MyBlogs/>} />
+      <Route index path="/signup" element={<SignUp/>} />
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
+      <Route index path="/login" element={<Login/>} />
       
     </Routes>
   </BrowserRouter>

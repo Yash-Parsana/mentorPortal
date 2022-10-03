@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
-// var Confirm = require('react-confirm-bootstrap');
 import Confirm from 'react-confirm-bootstrap';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
@@ -75,19 +74,19 @@ const MyBlogs = () => {
         }
     ]
 
-    const onConfirm = () => {
-        console.log('onConfirm');
+    // const onConfirm = () => {
+    //     console.log('onConfirm');
 
-    }
-    const popover = (
-        <Popover id="popover-basic">
-            {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
-            <Popover.Body>
-                Are you sure you want to delete this
+    // // }
+    // const popover = (
+    //     <Popover id="popover-basic">
+    //         {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
+    //         <Popover.Body>
+    //             Are you sure you want to delete this
 
-            </Popover.Body>
-        </Popover>
-    );
+    //         </Popover.Body>
+    //     </Popover>
+    // );
 
     const deleteHandler = () => {
         
@@ -174,6 +173,7 @@ const MyBlogs = () => {
                                             <DeleteIcon onClick={deleteHandler} style={{ color: 'red' }} />
                                             {/* <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                                                 <Button variant="success">Click me to see</Button>
+                                                <DeleteIcon style={{ color: 'red' }} />
                                             </OverlayTrigger> */}
                                         </div>
 

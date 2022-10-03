@@ -12,6 +12,7 @@ export default function InputField(props) {
         className="sign-in-input-fields"
         placeholder={props.placeholder}
         onChange={props.handleChange}
+        required
       />
     </div>
   );
