@@ -5,17 +5,14 @@ const blog = new mongoose.Schema({
         type: String,
         required:true,
     },
-    authorId: {
-        type: String,
-        required:true
-    },
-    author: {
-        type: String,
-        required:true,
+    mentor: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'mentor'
     },
     date: {
         type: Date,
-        required:true
+        default: Date.now,
     },
     tag: {
         type: [String],
@@ -33,9 +30,11 @@ const blog = new mongoose.Schema({
         type: [{
             rating: {
                 type: Number,
+                default :0
             },
             reviews: {
                 type: [String],
+                default :0
             }
         }]
     }
