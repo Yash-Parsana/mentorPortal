@@ -10,6 +10,8 @@ import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/Login/Login';
+import EventPage from './Components/Event/EventPage';
+import ResourcePage from './Components/Resource/ResourcePage';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
       <Route index path="/signup" element={<SignUp/>} />
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />
+      <Route index path="/event" element={<EventPage/>} />
+      <Route index path="/resources" element={<ResourcePage/>} />
       
     </Routes>
   </BrowserRouter>
