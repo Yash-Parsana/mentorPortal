@@ -55,20 +55,20 @@ function UniProfile() {
       e.target.value = "";
     }
   };
-  // const [user, setUser] = useState();
+  const [user, setUser] = useState();
 
-  // const sendRequest = async () => {
-  //   const res = await axios
-  //     .get(`http://localhost:5000/api/college/collegeId/${CollegeId}`)
-  //     .catch((err) => console.log(err));
-  //   const data = await res.data;
-  //   console.log(data);
-  //   console.log("-----");
-  //   return data;
-  // };
-  // useEffect(() => {
-  //   sendRequest().then((data) => setUser(data.college));
-  // }, []);
+  const sendRequest = async () => {
+    const res = await axios
+      .get(`http://localhost:5000/api/mentors/mentor/507f1f77bcf86cd799439011`)
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    console.log(data);
+    console.log("-----");
+    return data;
+  };
+  useEffect(() => {
+    sendRequest().then((data) => setUser(data.mentors));
+  }, []);
 
   return (
     <>
