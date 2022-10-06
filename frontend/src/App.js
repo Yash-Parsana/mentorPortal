@@ -20,6 +20,9 @@ import EditBlog from './Components/Blog/EditBlogPage';
 import MEvents from './Components/UniversityProfile/MEvents';
 
 
+import EventPage from './Components/Event/EventPage';
+import ResourcePage from './Components/Resource/ResourcePage';
+
 function App() {
   return (
     <div className="App">
@@ -34,7 +37,9 @@ function App() {
       <Route index path="/mentorevents" element={<MEvents/>} />
     
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
-    
+      <Route index path="/login" element={<Login/>} />
+      <Route index path="/event" element={<EventPage/>} />
+      <Route index path="/resources" element={<ResourcePage/>} />
       
       <Route exact path="/login" element={<Login />}></Route>
 
