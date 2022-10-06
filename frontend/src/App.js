@@ -27,6 +27,7 @@ import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
 import Profile from './Components/Profile/Profile';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
+import Studentlog from './loginsignup/login';
 
 function App() {
   return (
@@ -60,6 +61,10 @@ function App() {
       <Route exact path="/forgot" element={<Developerforgot />}></Route>
       <Route exact path="/chat/:to" element={<Mainchat />}></Route>
     </Routes>
+  
+    <Routes>  
+    <Route index path="/slogin/" element={<Studentlog/>} />
+  </Routes>   
   </BrowserRouter>
     </div>
   );
