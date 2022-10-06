@@ -1,17 +1,19 @@
 // const express = require('express')
 // const router = express.Router();
-const event=require('../models/eventsModel')
+const event = require('../models/eventsModel')
 
 
-const addEvent = async(req, res, next) => {
-    
+const addEvent = async (req, res, next) => {
+
     res.set('Access-Control-Allow-Origin', '*');
 
     try {
-        const { name,mentorId, speaker, time, duration, description, image } = req.body;
+        // const { name, mentorId, speaker, time, duration, description, image } = req.body;
+        const { name, mentor, speaker, time, duration, description, image } = req.body;
         let newevent = new event();
         newevent.name = name;
-        newevent.mentorId = mentorId;
+        // newevent.mentorId = mentorId;
+        newevent.mentor = mentor;
         newevent.speaker = speaker;
         newevent.time = time;
         newevent.duration = duration;
@@ -20,14 +22,13 @@ const addEvent = async(req, res, next) => {
         await newevent.save();
         res.status(200).json({
             success: true,
-            message:"Event is saved"
+            message: "Event is saved"
         })
     }
-    catch (err)
-    {
+    catch (err) {
         console.log("Error while saving new event : ", err);
         res.status(400).json({
-            success:false,
+            success: false,
             message: "Event can not be saved"
         })
     }
@@ -35,24 +36,22 @@ const addEvent = async(req, res, next) => {
 
 }
 const getAllevent = async (req, res, next) => {
-    
+
     let events;
     try {
-        events = await event.find();
+        events = await event.find().populate('mentor');
     }
-    catch (err)
-    {
-        console.log("Error while fetching All events: ",err);
+    catch (err) {
+        console.log("Error while fetching All events: ", err);
         res.status(400).json({
             success: false,
-            message:"Error in fetching all events"
+            message: "Error in fetching all events"
         })
     }
-    if (!events)
-    {
+    if (!events) {
         return res.status(404).json({
-            success:false,
-            message:"Events can not be found"
+            success: false,
+            message: "Events can not be found"
         })
     }
     res.status(200).json({
@@ -62,29 +61,45 @@ const getAllevent = async (req, res, next) => {
 }
 const getEventById = async (req, res, next) => {
     res.set('Access-Control-Allow-Origin', '*');
-    let myevent;
-    try {
-        let id = req.params
-        myevent = event.findOne({ _id: id })
+    // let myevent;
+    // try {
+    //     let id = req.params
+    //     myevent = event.findOne({ _id: id })
+    //         .populate('mentor')
+    // }
+    // catch (err) {
+    //     res.status(400).json({
+    //         success: false,
+    //         message: "Error while fetching specific event"
+    //     })
+    // }
+    // if (!myevent) {
+    //     return res.status(404).json({
+    //         success: false,
+    //         message: "Event can not be found"
+    //     })
+    // }
+    // res.status(200).json({
+    //     success: true,
+    //     myevent
+    // })
+    const { id } = req.params
+
+    if (id) {
+        event.findOne({ _id: id })
+            .populate('mentor')
+            .exec((error, event) => {
+                if (error) {
+                    return res.status(400).send({ error: error })
+                }
+                if (event) {
+                    return res.status(200).send({ event })
+                }
+
+            })
+    } else {
+        return res.status(200).send({ error: "params required" })
     }
-    catch (err)
-    {
-        res.status(400).json({
-            success: false,
-            message:"Error while fetching specific event"
-        })
-    }
-    if (!myevent)
-    {
-        return res.status(404).json({
-            success: false,
-            message:"Event can not be found"
-        })
-    }
-    res.status(200).json({
-        success: true,
-        myevent
-    })
 }
 const deleteEventById = async (req, res, next) => {
     try {
@@ -92,35 +107,33 @@ const deleteEventById = async (req, res, next) => {
         event.deleteOne({ _id: id })
         res.status(200).json({
             success: true,
-            message:"Event deleted"
+            message: "Event deleted"
         })
     }
     catch (err) {
-        console.log("Error while deleting event : ",err);
-        res.status(400).json({success:false,message:err.message})
+        console.log("Error while deleting event : ", err);
+        res.status(400).json({ success: false, message: err.message })
     }
-    
+
 }
 const getEventByMentorId = async (req, res, next) => {
-    
+
     let events;
     try {
         let mentorId = req.params
         events = event.find({ mentorId: mentorId })
     }
-    catch (err)
-    {
+    catch (err) {
         console.log("Error while fetching event of a mentor : ", err);
         res.status(400).json({
             success: false,
-            message:"Event can not be found"
+            message: "Event can not be found"
         })
     }
-    if (!events)
-    {
+    if (!events) {
         return res.status(404).json({
             success: false,
-            message:"Events can not be found"
+            message: "Events can not be found"
         })
     }
     res.status(200).json({
