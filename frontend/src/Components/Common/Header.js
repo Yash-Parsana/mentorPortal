@@ -62,6 +62,11 @@ export default function Header(props) {
                   Contact
                 </NavLink>
               </div>
+              <div className="tab-container">
+                <NavLink className={(index === 7) ? "nav-link active" : "nav-link"} to="/myblog">
+                  my blogs
+                </NavLink>
+              </div>
 
             </div>
           </div>
