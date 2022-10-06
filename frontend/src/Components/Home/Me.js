@@ -15,15 +15,15 @@ function Me() {
   return (
 
     <div className="popo">
-      <div className="container">
-        <div className="row " style={{ display: "flex", justifyContent: "center" }}>
-          <div className="main-div mt-3 p-3 col-md-8 col-sm-6">
-            <div className="row">
-              <div class="tw-rounded-xl tw-bg-white tw-shadow-sm tw-relative tw-overflow-hidden tw-p-5">
-                <div class="part1">
-                  <div className='left'>
-                    <img alt=" menter avatar" test_id="avatar" class="imgstyle" src="img/nv1.jpg" lazy="loaded"></img>
-                  </div>
+    <div className="container">
+    <div className="row width-card-menter " >
+    <div className="main-div mt-3 p-3 col-md-8 col-sm-6">
+    <div className="row">
+    <div class="tw-rounded-xl tw-bg-white tw-shadow-sm tw-relative tw-overflow-hidden tw-p-5">
+    <div class="part1">
+    <div className='left'>
+    <img alt=" menter avatar" test_id="avatar" class="imgstyle" src="img/nv1.jpg" lazy="loaded"></img>
+    </div>
 
                   <div className='mid'>
                     <div className='mentor-name'>

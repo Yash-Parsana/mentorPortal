@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import LogCompo from "./Components/logincontext/authcontext";
+import LogCompo1 from "./Loginsignincontext/context";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+ <LogCompo1>
+  <LogCompo>
     <App />
-  </React.StrictMode>
+  </LogCompo>
+</LogCompo1>
 );
 
 // If you want to start measuring performance in your app, pass a function
