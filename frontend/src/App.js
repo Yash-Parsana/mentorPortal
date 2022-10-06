@@ -27,7 +27,7 @@ import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
 import Profile from './Components/Profile/Profile';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
-import Studentlog from './loginsignup/login';
+
 
 function App() {
   return (
