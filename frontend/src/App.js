@@ -17,10 +17,12 @@ import Login from "./Components/loginsigninuser/login";
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
-import SignUp from './Components/SignUp/SignUp';
-import Login from './Components/Login/Login';
+
+
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
+import Profile from './Components/Profile/Profile';
+import Myprofilehistory from './Components/Profile/MyProfileHistory';
 
 function App() {
   return (
@@ -38,8 +40,10 @@ function App() {
       <Route index path="/login" element={<Login/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
+      <Route index path="/profile" element={<Profile/>} />
+      <Route index path="/profilehistory" element={<Myprofilehistory/>} />
       
-      <Route exact path="/login" element={<Login />}></Route>
+  
 
       <Route exact path="/slogin" element={<Studentlog />}></Route>
       <Route exact path="/ssignin" element={<StudentSign />}></Route>
