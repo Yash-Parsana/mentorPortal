@@ -187,7 +187,6 @@ function UniProfile() {
               </NavLink>
             </div>
           </div>
-
           <div
             style={{
               border: "2px solid #F5F7F9",

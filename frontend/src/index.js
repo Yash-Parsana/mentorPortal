@@ -6,9 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import LogCompo from "./Components/logincontext/authcontext";
 import LogCompo1 from "./Loginsignincontext/context";
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <LogCompo1>
+ <LogCompo1>
   <LogCompo>
     <App />
   </LogCompo>

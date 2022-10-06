@@ -1,5 +1,3 @@
-const bcrypt = require("bcryptjs");
-const jwt=require('jsonwebtoken');
 const { STATES } = require("mongoose");
 const mentor = require('../models/mentorModel')
 

@@ -203,8 +203,8 @@ function Mainchat() {
 
     if (student) {
     }
-  }, [upperurl, ok]);
-
+  }, [ok,upperurl]);
+ 
   if (
     toname_ == "" ||
     fromname_ == "" ||
