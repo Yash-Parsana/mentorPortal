@@ -22,6 +22,7 @@ import MEvents from './Components/UniversityProfile/MEvents';
 
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
+import MHistory from './Components/UniversityProfile/MHistory';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Route index path="/myblog" element={<MyBlogs/>} />
       <Route index path="/mentorpage" element={<UniProfile/>} />
       <Route index path="/mentorevents" element={<MEvents/>} />
+      <Route index path="/mentorhistory" element={<MHistory/>} />
     
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />
