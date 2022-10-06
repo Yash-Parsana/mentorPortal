@@ -17,6 +17,7 @@ import Login from "./Components/loginsigninuser/login";
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
+import MEvents from './Components/UniversityProfile/MEvents';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route index path="/addblog" element={<AddBlog/>} />
       <Route index path="/myblog" element={<MyBlogs/>} />
       <Route index path="/mentorpage" element={<UniProfile/>} />
+      <Route index path="/mentorevents" element={<MEvents/>} />
     
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
     
