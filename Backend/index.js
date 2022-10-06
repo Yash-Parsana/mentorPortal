@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv=require('dotenv')
 const connectDb=require('./config/db')
-
+const cors=require('cors')
 
 dotenv.config({
     path: './config/config.env'
@@ -23,6 +23,7 @@ const resourceRouter=require('./routes/resourcesRouter')
 const blogRouter=require('./routes/blogRouter')
 
 
+app.use(cors())
 app.use('/api/auth', signupLoginRoute);
 app.use('/api/mentors', mentorRoute);
 app.use('/api/events', eventRouter);
@@ -31,5 +32,5 @@ app.use('/rosources', resourceRouter);
 app.use('/blog', blogRouter);
 
 
-const PORT = 3000||process.env.PORT;
+const PORT = 5000||process.env.PORT;
 app.listen(PORT, console.log("Server is running")); 

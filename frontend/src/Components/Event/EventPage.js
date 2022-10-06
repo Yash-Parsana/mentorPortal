@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Common/Header';
 // import ProjectCard from '../Profile/ProjectCard';
 import "./CSS/EventDiv.css"
@@ -8,13 +8,23 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import { getAllEvents } from '../../actions/event.action';
+import { useDispatch, useSelector } from 'react-redux';
+import EventCard from './EventCard';
 
 const EventPage = () => {
     // const [isHandi, setishan] = useState(false);
 
-
+    const dispatch = useDispatch();
     const [projects, setProjects] = useState();
+    const { events } = useSelector(state => state.event)
 
+
+    useEffect(() => {
+        dispatch(getAllEvents())
+    }, [])
+
+    // { console.log('eventsssss', event.events); }
     // const sendReq = async () => {
     //     const res = await axios
     //         .get("http://localhost:5000/api/project")
@@ -244,32 +254,39 @@ const EventPage = () => {
             </div>
             <div className=' d-flex justify-content-around mt-5 mb-3' style={{ backgroundColor: 'aliceblue' }}>
                 <div className='d-flex justify-content-around my-2 ' style={{ width: '80%' }}>
-                    <Card style={{ width: '18rem' }}>
+                    {
+                        events && events.length > 0 &&
+                        events.map(event =>
+                            <EventCard event={event} />
+                        )
+                    }
+
+                    {/* <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
                         <Card.Body>
-                            <Card.Title className ='d-flex justify-content-center'>Card Title</Card.Title>
+                            <Card.Title className='d-flex justify-content-center'>Card Title</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.
                             </Card.Text>
-                            <Card.Text className='d-flex justify-content-center'  style={{opacity: 0.6}}>
+                            <Card.Text className='d-flex justify-content-center' style={{ opacity: 0.6 }}>
                                 <small>October 19,2022</small>
                             </Card.Text>
-                            <Button variant="light" className ='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
+                            <Button variant="light" className='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
                         </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }}>
+                    </Card> */}
+                    {/* <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
                         <Card.Body>
-                            <Card.Title className ='d-flex justify-content-center'>Card Title</Card.Title>
+                            <Card.Title className='d-flex justify-content-center'>Card Title</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.
                             </Card.Text>
-                            <Card.Text className='d-flex justify-content-center'  style={{opacity: 0.6}}>
+                            <Card.Text className='d-flex justify-content-center' style={{ opacity: 0.6 }}>
                                 <small>October 19,2022</small>
                             </Card.Text>
-                            <Button variant="light" className ='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
+                            <Button variant="light" className='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '18rem' }}>
@@ -277,17 +294,17 @@ const EventPage = () => {
 
                         <Card.Body>
 
-                            <Card.Title className ='d-flex justify-content-center'>Card Title</Card.Title>
+                            <Card.Title className='d-flex justify-content-center'>Card Title</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the
                                 bulk of the card's content.
                             </Card.Text>
-                            <Card.Text className='d-flex justify-content-center' style={{opacity: 0.6}}>
+                            <Card.Text className='d-flex justify-content-center' style={{ opacity: 0.6 }}>
                                 <small>October 19,2022</small>
                             </Card.Text>
-                            <Button variant="light" className ='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
+                            <Button variant="light" className='mt-2' style={{ marginLeft: '7rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
                         </Card.Body>
-                    </Card>
+                    </Card> */}
                 </div>
             </div>
 

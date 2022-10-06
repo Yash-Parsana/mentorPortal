@@ -31,6 +31,12 @@ export default function Header(props) {
                 </NavLink>
               </div>
 
+              <div className="tab-container">
+                <NavLink className=
+                {(index==1)? "nav-link active black" : "nav-link" } to="/event">
+                  Events
+                </NavLink>
+              </div>
 
               <div className="tab-container">
                 <NavLink className={(index === 3) ? "nav-link active" : "nav-link"} to="/blog">
