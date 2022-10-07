@@ -109,9 +109,7 @@ export default function Header(props) {
                 <NotificationsIcon style={{ width: '55px', height: '40px', color: '#3d82be' }} />
               </OverlayTrigger>
             </div>
-            {/* <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-              <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
-            </OverlayTrigger> */}
+           
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
               <NavLink className="nav-link" to="/login">
                 <div className="profile w-1 h-5">

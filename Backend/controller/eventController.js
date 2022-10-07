@@ -39,7 +39,7 @@ const getAllevent = async (req, res, next) => {
 
     let events;
     try {
-        events = await event.find().populate('mentor');
+        events = await event.find();
     }
     catch (err) {
         console.log("Error while fetching All events: ", err);
@@ -86,13 +86,14 @@ const getEventById = async (req, res, next) => {
     const { id } = req.params
 
     if (id) {
+        console.log(id);
         event.findOne({ _id: id })
-            .populate('mentor')
             .exec((error, event) => {
                 if (error) {
                     return res.status(400).send({ error: error })
                 }
                 if (event) {
+                    console.log({ event });
                     return res.status(200).send({ event })
                 }
 
@@ -118,28 +119,25 @@ const deleteEventById = async (req, res, next) => {
 }
 const getEventByMentorId = async (req, res, next) => {
 
-    let events;
-    try {
-        let mentorId = req.params
-        events = event.find({ mentorId: mentorId })
+    const { id } = req.params
+
+    if (id) {
+        console.log(id);
+        event.findOne({ mentor: id })
+            .populate('mentor')
+            .exec((error, event) => {
+                if (error) {
+                    return res.status(400).send({ error: error })
+                }
+                if (event) {
+                    console.log({ event });
+                    return res.status(200).send({ event })
+                }
+
+            })
+    } else {
+        return res.status(200).send({ error: "params required" })
     }
-    catch (err) {
-        console.log("Error while fetching event of a mentor : ", err);
-        res.status(400).json({
-            success: false,
-            message: "Event can not be found"
-        })
-    }
-    if (!events) {
-        return res.status(404).json({
-            success: false,
-            message: "Events can not be found"
-        })
-    }
-    res.status(200).json({
-        success: true,
-        events
-    })
 }
 
 module.exports = { addEvent, getAllevent, getEventById, getEventByMentorId, deleteEventById };
