@@ -162,6 +162,7 @@ export default function Home() {
     return (
         <>
             <Header index={1} />
+
            
             <div style={{ width: "100%" }}>
                 <div
@@ -328,6 +329,7 @@ export default function Home() {
                         return (
                             <Me style={{ marginTop: "15px" }}
                                 name={mentor.mentor.name}
+                                intro ={mentor.intro}
                             />
                         )
                     })}
