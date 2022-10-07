@@ -56,7 +56,7 @@ export default function Header(props) {
 
               <div className="tab-container">
                 <NavLink className=
-                {(index==1)? "nav-link active black" : "nav-link" } to="/event">
+                  {(index == 1) ? "nav-link active black" : "nav-link"} to="/event">
                   Events
                 </NavLink>
               </div>
@@ -110,12 +110,10 @@ export default function Header(props) {
           >
             <div className='me-3' style={{ width: '50px' }}>
               <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
+                <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be', cursor: 'pointer' }} />
               </OverlayTrigger>
             </div>
-            {/* <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-              <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
-            </OverlayTrigger> */}
+           
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
               <NavLink className="nav-link" to="/login">
                 <div className="profile w-1 h-5">

@@ -6,16 +6,17 @@ const resources = new mongoose.Schema({
         type: String,
         required:true
     },
-    providerId: {
-        type: String,
-        required:true
-    },
     provider: {
-        type: String,
-        required:true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'mentor'
     },
     tags: {
         type: [String],
+        required:true
+    },
+    description:{
+        type :String,
         required:true
     },
     pdfLink: {

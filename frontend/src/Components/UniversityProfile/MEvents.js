@@ -158,7 +158,7 @@ function MEvents() {
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
-                to="/collegefaculty"
+                to="/mentorevents"
               >
                 <SideBarOption icon="groups" title="Events" />
               </NavLink>
@@ -246,9 +246,9 @@ function MEvents() {
 
             <div className="container">
             <div className="row">
+            {/* <div className="col-md-4"><EventCard/></div>
             <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
+            <div className="col-md-4"><EventCard/></div> */}
            
             </div>
             </div>
