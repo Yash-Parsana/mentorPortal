@@ -5,11 +5,15 @@ import axios from "axios";
 import { Navigate, Link, useParams } from "react-router-dom";
 import Header from "../Common/Header";
 import "./StudentProfile.css";
-
+import Beginner from "../../Assets/Images/beginner.jpg";
+import Intermediate from "../../Assets/Images/intermediate.jpg";
+import Master from "../../Assets/Images/master.jpg";
+import StarIcon from '@mui/icons-material/Star';
 import ProjectCard from "../Profile/ProjectCard";
 import Tag from "../Common/Tag";
 
 export default function StudentProfile() {
+  const [rating, setRating] = useState();
   const { id } = useParams();
   console.log("Student ID: " + id);
   const [projects, setProjects] = useState();
@@ -21,6 +25,7 @@ export default function StudentProfile() {
     fontSize: 17,
     fontWeight: "500",
     marginRight: 10,
+    marginTop: 8
   };
   
   // const cookies = new Cookies();
@@ -109,7 +114,7 @@ export default function StudentProfile() {
                 apartment
               </i>
               <div className="college-text-container">
-                Birla vishvakrama Mahavidhyala
+                Surat, Gujarat
               </div>
             </div>
 
@@ -140,31 +145,30 @@ export default function StudentProfile() {
               >
                 business_center
               </i>
-              <div className="college-text-container">Computer</div>
+              <div className="college-text-container">253 reviews / 458 sessions</div>
             </div>
 
-            <div className="college-container">
-              <i
-                className="material-icons"
-                style={{
-                  marginTop: 3,
-                  fontSize: 28,
-                  color: "#000",
-                }}
-              >
-                school
-              </i>
-              <div className="college-text-container">2023</div>
-            </div>
+         
+            
             <hr className="horizontal-line"></hr>
-            <div className="skills-container">Skills</div>
-            <div className="skills-inner-container">
-              <Tag title="Java" customeStyle={projectStyle} />
+            <div style={{ display: "flex", flexDirection: 'row' }}>
+            {rating < 200 ? <img style={{ boxShadow: "0px 0px 40px 10px rgba(199,199,199,1)", backgroundColor: '#2C5EFF', width: 70, borderRadius: '50%' }} src={Beginner} /> : rating > 700 ? <img src={Intermediate} style={{ backgroundColor: '#2C5EFF', width: 70, borderRadius: '50%' }} /> : <img src={Master} style={{ backgroundColor: '#2C5EFF', width: 70, borderRadius: '50%' }} />}
+            <div style={{ display: "flex", flexDirection: "column", marginTop: 'auto', marginBottom: 'auto' }}>
+              <div style={{ fontFamily: 'poppins', fontWeight: 500, marginTop: "auto", marginBottom: 'auto', marginLeft: 15, fontSize: 22 }}>{rating < 200 ? "Beginner" : rating < 700 ? "Intermediate" : "Master"}</div>
+
+              <div style={{ display: "flex", flexDirection: 'row', marginLeft: 13 }}>
+                <StarIcon />
+                <div style={{ fontFamily: 'poppins', marginLeft: 5, fontSize: 18, }}>{4.7}</div>
+              </div>
             </div>
+          </div>
+
             <hr className="horizontal-line"></hr>
-            <div className="skills-container">Domain</div>
+            <div className="skills-container">Laungauges</div>
             <div className="skills-inner-container">
-              <Tag title="Machine Learning" customeStyle={projectStyle} />
+              <Tag title="English" customeStyle={projectStyle} />
+              <Tag title="Hindi" customeStyle={projectStyle} />
+              <Tag title="Gujarati" customeStyle={projectStyle} />
             </div>
           </div>
         </div>
@@ -176,15 +180,72 @@ export default function StudentProfile() {
             marginRight: 50,
           }}
         >
-          <div style={{marginRight: 100}}>{projects &&
-            projects.map((project, index) => (
-              <Link
-                style={{ textDecoration: "none",  }}
-                to={{ pathname: `/viewProject/${project._id}` }}
-              >
-                <ProjectCard project={project} />
-              </Link>
-            ))}</div>
+          <div style={{marginRight: 100, marginTop:"22px", marginLeft:"14px"}}>
+          <div className="skills-container" ><span style={{fontSize:"20px"}}>Laungauges</span></div>
+          <div className="skills-inner-container">
+            <Tag title="English" customeStyle={projectStyle} />
+            <Tag title="Hindi" customeStyle={projectStyle} />
+            <Tag title="Gujarati" customeStyle={projectStyle} />
+          </div>
+          </div>
+
+          <div style={{marginRight: 100, marginTop:"22px", marginLeft:"14px"}}>
+          <div className="skills-container" ><span style={{fontSize:"20px"}}>Expertise</span></div>
+          <div className="skills-inner-container">
+            <Tag title="Software" customeStyle={projectStyle} />
+            <Tag title="MERN Stack" customeStyle={projectStyle} />
+            <Tag title="Counceling" customeStyle={projectStyle} />
+            <Tag title="Blockchain" customeStyle={projectStyle} />
+            <Tag title="Machine Learning" customeStyle={projectStyle} />
+          </div>
+          </div>
+
+          <div style={{marginRight: 100, marginTop:"22px", marginLeft:"14px"}}>
+          <div className="skills-container" ><span style={{fontSize:"20px"}}>Tools</span></div>
+          <div className="skills-inner-container">
+            <Tag title="vs code" customeStyle={projectStyle} />
+            <Tag title="Subline Text-editor" customeStyle={projectStyle} />
+            <Tag title="Pycharm" customeStyle={projectStyle} />
+          </div>
+          </div>
+          <section
+          class="food-client-video  home-food-client-video "
+        
+        >
+          <div class="container">
+            
+            <div class="testi-loding-main">
+              <div class="testi-loding-box bgafter1">
+                
+  
+                <p>
+                  <span class="quote-sign">
+                    <img
+                      class=""
+                      loading="lazyload"
+                      data-src="img/quote-sign.png"
+                      src="img/quote-sign.png"
+                    />
+                  </span>
+                  " We have been using Ashish and his team for over 3 years now.
+                  We have posted several projects, each worth a few thousand
+                  dollars, and they have delivered them punctually every single
+                  time!I have a
+                  few more projects lined up and will be using them again. Highly
+                  recommended! "
+                </p>
+                <h5 class="testimonial-author">
+                  David Koganti - <small>Mentee</small>
+                </h5>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+        
+        </section>
+          
         </div>
       </div>
     </>
