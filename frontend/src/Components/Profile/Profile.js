@@ -437,11 +437,11 @@ export default function Profile() {
               className="profile w-5 h-5"
               style={{ marginTop: 20, marginBottom: "auto" }}
             >
-              {/* <img
-                src={singleUser.ProfileImg}
+             <img
+                src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
                 className="w-110 h-110 rounded-circle"
                 height="300px"
-              /> */}
+              /> 
             </div>
             <div style={{ marginTop: 50 }}></div>
             <button

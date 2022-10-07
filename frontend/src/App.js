@@ -28,6 +28,8 @@ import MHistory from './Components/UniversityProfile/MHistory';
 import Profile from './Components/Profile/Profile';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
 import MResources from './Components/UniversityProfile/MResources';
+import StudentProfile from './Components/Profile/StudentProfile';
+import MyProfile from './Components/Profile/MyProfile';
 
 
 function App() {
@@ -50,7 +52,8 @@ function App() {
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
       <Route index path="/profile" element={<Profile/>} />
-      <Route index path="/profilehistory" element={<Myprofilehistory/>} />
+      <Route index path="/profilehistory" element={<StudentProfile/>} />
+      <Route index path="/menteeprofile" element={<MyProfile/>} />
       
   
 

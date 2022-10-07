@@ -146,7 +146,7 @@ export default function Home() {
     };
     return (
         <>
-            <Header index={2} />
+            <Header index={1} />
            
             <div style={{ width: "100%" }}>
                 <div

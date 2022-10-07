@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import MyProjects from "./MyProjects";
 import Profile from "./Profile";
 import axios from "axios";
-import Cookies from 'universal-cookie'
+// import Cookies from 'universal-cookie'
 
 export default function MyProfile() {
   const history = useNavigate();
-  const [singleUser, setSingleUser] = useState();
+  // const [singleUser, setSingleUser] = useState();
   const [email, setEmail] = useState();
   // const cookies = new Cookies();
   // const UserId = cookies.get('userId')
@@ -73,7 +73,7 @@ export default function MyProfile() {
   }
   return (
     <>
-      {singleUser &&(<div
+      {(<div
         style={{
           display: "flex",
           textAlign: "center",
@@ -87,7 +87,7 @@ export default function MyProfile() {
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
               <div className="profile w-5 h-5">
                 <img
-                  src={imgLink}
+                  src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
                   className="w-110 h-110 rounded-circle"
                   height="100px"
                 />
@@ -109,7 +109,7 @@ export default function MyProfile() {
                   textAlign: "start",
                 }}
               >
-                {singleUser.Fname + ' ' + singleUser.LName}
+                Dharmesh Vala
               </div>
 
               <div
@@ -121,7 +121,7 @@ export default function MyProfile() {
                   fontFamily: 'poppins'
                 }}
               >
-                {email}
+dvala453@gmail.com
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function MyProfile() {
             width: "-webkit-fill-available",
           }}
         >
-          {myProfile ? <Profile /> : <MyProjects />}
+          {myProfile ? <Profile /> : <h1>mainnn</h1>}
           {/* <MyProjects /> */}
           {/* <Profile /> */}
         </div>
