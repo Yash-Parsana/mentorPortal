@@ -52,7 +52,6 @@ function App() {
       <Route index path="/profile" element={<Profile/>} />
       <Route index path="/profilehistory" element={<Myprofilehistory/>} />
       
-  
 
       <Route exact path="/slogin" element={<Studentlog />}></Route>
       <Route exact path="/ssignin" element={<StudentSign />}></Route>

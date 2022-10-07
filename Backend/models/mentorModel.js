@@ -2,9 +2,10 @@ const mongoose = require("mongoose")
 
 
 const mentorSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required:true,
+    mentor: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     },
     photo: {
         type: String,
@@ -14,12 +15,12 @@ const mentorSchema = new mongoose.Schema({
         required: true,
         default:0
     },
-    langauge: {
+    language: {
         type: [String],
         required:true
     },
     experience: {
-        typr: String,
+        type: String,
         // required:true
     },
     industry: {

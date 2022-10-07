@@ -2,7 +2,9 @@ import axios from 'axios'
 import { authConstants } from '../actions/constants'
 // import { api } from '../urlConfig'
 import store from '../store'
+// const api="https://mentor-portal-backend.onrender.com/api"
 const api="http://localhost:5000/api"
+
 const Token=window.localStorage.getItem('token')
 
 const axiosIntance=axios.create({
