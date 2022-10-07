@@ -5,15 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LogCompo from "./Components/logincontext/authcontext";
 import LogCompo1 from "./Loginsignincontext/context";
+import store from './store';
+import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- <LogCompo1>
-  <LogCompo>
-    <App />
-  </LogCompo>
-</LogCompo1>
+  <Provider store={store}>
+    <LogCompo1>
+      <LogCompo>
+        <App />
+      </LogCompo>
+    </LogCompo1>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

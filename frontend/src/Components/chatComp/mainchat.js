@@ -124,7 +124,7 @@ function Mainchat() {
             setopponent(item.data().chats);
           }
         });
-      });      
+      });
     }
 
     const queryy = query(collection(dbnondev, "chats"));
@@ -203,8 +203,8 @@ function Mainchat() {
 
     if (student) {
     }
-  }, [ok,upperurl]);
- 
+  }, [upperurl, ok]);
+
   if (
     toname_ == "" ||
     fromname_ == "" ||

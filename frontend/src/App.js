@@ -17,11 +17,17 @@ import Login from "./Components/loginsigninuser/login";
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
+
 import MEvents from './Components/UniversityProfile/MEvents';
+
 
 
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
+import MHistory from './Components/UniversityProfile/MHistory';
+import Profile from './Components/Profile/Profile';
+import Myprofilehistory from './Components/Profile/MyProfileHistory';
+
 
 function App() {
   return (
@@ -35,13 +41,16 @@ function App() {
       <Route index path="/myblog" element={<MyBlogs/>} />
       <Route index path="/mentorpage" element={<UniProfile/>} />
       <Route index path="/mentorevents" element={<MEvents/>} />
+      <Route index path="/mentorhistory" element={<MHistory/>} />
     
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
+      <Route index path="/profile" element={<Profile/>} />
+      <Route index path="/profilehistory" element={<Myprofilehistory/>} />
       
-      <Route exact path="/login" element={<Login />}></Route>
+  
 
       <Route exact path="/slogin" element={<Studentlog />}></Route>
       <Route exact path="/ssignin" element={<StudentSign />}></Route>
@@ -52,6 +61,10 @@ function App() {
       <Route exact path="/forgot" element={<Developerforgot />}></Route>
       <Route exact path="/chat/:to" element={<Mainchat />}></Route>
     </Routes>
+  
+    <Routes>  
+    <Route index path="/slogin/" element={<Studentlog/>} />
+  </Routes>   
   </BrowserRouter>
     </div>
   );

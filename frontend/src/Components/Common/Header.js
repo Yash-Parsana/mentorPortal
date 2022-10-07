@@ -2,8 +2,31 @@ import React from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import "../GeneralCSS/main.css"
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 
 export default function Header(props) {
+
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3">Notifications</Popover.Header>
+      <Popover.Body>
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+        <hr />
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+        <hr />
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+        <hr />
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+        <hr />
+      </Popover.Body>
+    </Popover>
+  );
   let index = props.index;
   console.log('index', index);
   return (
@@ -17,7 +40,7 @@ export default function Header(props) {
                   src="img/nv1.jpg"
                   className="homeimg"
                   style={{ width: 70, height: 70, marginTop: "14px" }}
-                  alt =''
+                  alt=''
                 />
               </div>
             </NavLink>
@@ -26,11 +49,17 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                {(index==1)? "nav-link active black" : "nav-link" } to="/mentor">
+                  {(index == 1) ? "nav-link active black" : "nav-link"} to="/mentor">
                   Find Mentor
                 </NavLink>
               </div>
 
+              <div className="tab-container">
+                <NavLink className=
+                {(index==1)? "nav-link active black" : "nav-link" } to="/event">
+                  Events
+                </NavLink>
+              </div>
 
               <div className="tab-container">
                 <NavLink className={(index === 3) ? "nav-link active" : "nav-link"} to="/blog">
@@ -79,6 +108,14 @@ export default function Header(props) {
               alignItems: "center",
             }}
           >
+            <div className='me-3' style={{ width: '50px' }}>
+              <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
+              </OverlayTrigger>
+            </div>
+            {/* <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+              <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
+            </OverlayTrigger> */}
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
               <NavLink className="nav-link" to="/login">
                 <div className="profile w-1 h-5">

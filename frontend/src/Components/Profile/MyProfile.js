@@ -10,46 +10,46 @@ export default function MyProfile() {
   const history = useNavigate();
   const [singleUser, setSingleUser] = useState();
   const [email, setEmail] = useState();
-  const cookies = new Cookies();
-  const UserId = cookies.get('userId')
-  const studentId = cookies.get('uTypeId')
+  // const cookies = new Cookies();
+  // const UserId = cookies.get('userId')
+  // const studentId = cookies.get('uTypeId')
   const [imgLink , setImgLink]= useState(); 
-  const sendReq = async () => {
-    const res = await axios
-      .get(`http://localhost:5000/api/student/getStudentById/${studentId}`)
+  // const sendReq = async () => {
+  //   const res = await axios
+  //     .get(`http://localhost:5000/api/student/getStudentById/${studentId}`)
 
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    //console.log("Data from API:" + data[0].Fname);
-    return data;
-  };
+  //     .catch((err) => console.log(err));
+  //   const data = await res.data;
+  //   //console.log("Data from API:" + data[0].Fname);
+  //   return data;
+  // };
 
-  const sendReqForEmail = async () => {
-    console.log("UserID: "+UserId);
-    const res = await axios
-    .get(`http://localhost:5000/api/user/${UserId}`)
-    .catch((err) => console.log(err));
-    const data = await res.data;
-    console.log(data);
-    return data;
+  // const sendReqForEmail = async () => {
+  //   console.log("UserID: "+UserId);
+  //   const res = await axios
+  //   .get(`http://localhost:5000/api/user/${UserId}`)
+  //   .catch((err) => console.log(err));
+  //   const data = await res.data;
+  //   console.log(data);
+  //   return data;
 
-  };
+  // };
 
-  useEffect(() => {
-    sendReq().then((data) => {
-      console.log(data);
-      setSingleUser(data);
-      setImgLink(singleUser.ProfileImg);
-      sendReqForEmail().then((data) => {
-        console.log(data.user[0].Email);
-        setEmail(data.user[0].Email);
-        console.log("UserDetails: "+email);
-      });
+  // useEffect(() => {
+  //   sendReq().then((data) => {
+  //     console.log(data);
+  //     setSingleUser(data);
+  //     setImgLink(singleUser.ProfileImg);
+  //     sendReqForEmail().then((data) => {
+  //       console.log(data.user[0].Email);
+  //       setEmail(data.user[0].Email);
+  //       console.log("UserDetails: "+email);
+  //     });
       
       
-    });
+  //   });
   
-  }, []);
+  // }, []);
   
   const [myProfile, setMyProfile] = useState(true);
 

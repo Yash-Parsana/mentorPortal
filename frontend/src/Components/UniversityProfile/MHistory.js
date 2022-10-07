@@ -10,18 +10,19 @@ import { NavLink } from "react-router-dom";
 // import Cookies from 'universal-cookie'
 import { Navigate } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import EventCard from "../Event/EventCard";
+import EventCard from "../Event/EventCard";import Accordion from "react-bootstrap/Accordion";
+import UserHistoryList from "./UserHistoryList";
+import "./hismain.css"
+import SearchIcon from '@mui/icons-material/Search';
 
-// import Popup from 'reactjs-popup';
-
-function MEvents() {
+function MHistory() {
   const [tagList, setTaglist] = useState([]);
   const [explist, setExplist] = useState([]);
 
   const [timeframe, setTimeFrame] = useState("");
 
   const [timeframe2, setTimeFrame2] = useState("");
-
+  const [searchinput, searchinputUpdate] = useState("");
   //  const cookies = new Cookies();
   //  const UserType = cookies.get('userType');
 
@@ -71,7 +72,113 @@ function MEvents() {
   //   sendRequest().then((data) => setUser(data.college));
   // }, []);
 
+  const initialHistoryList = [
+    {
+      id: 0,
+      timeAccessed: '27/09/2022 07.00PM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/instagram-img.png',
+      title: 'Dharmesh Vala',
+     typee:'individual mentoring',
+      domainUrl: '20 mins',
+    },
+    {
+      id: 1,
+      timeAccessed: '27/08/2025 05:45 PM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/twitter-img.png',
+      title: 'Akshay Jadav',
+      typee:'individual mentoring',
+      domainUrl: '20 mins',
+    },
+    {
+      id: 2,
+      timeAccessed: '27/01/2001 04:35 PM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/facebook-img.png',
+      title: 'Vishant Wali',
+      typee:'individual mentoring',
+      domainUrl: '18 mins',
+    },
+    {
+      id: 8,
+      timeAccessed: '27/09/2018 09:25 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
+      title: 'Tejas Tank',
+      domainUrl: '75min',
+      typee:'individual mentoring',
+    },
+    {
+      id: 8,
+      timeAccessed: '27/09/2018 09:25 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
+      title: 'Tejas Tank',
+      domainUrl: '75min',
+      typee:'individual mentoring',
+    },
+    {
+      id: 8,
+      timeAccessed: '27/09/2018 09:25 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
+      title: 'Tejas Tank',
+      domainUrl: '75min',
+      typee:'individual mentoring',
+    },
+    {
+      id: 8,
+      timeAccessed: '27/09/2018 09:25 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
+      title: 'Tejas Tank',
+      domainUrl: '75min',
+      typee:'individual mentoring',
+    }
+   ,
+    {
+      id: 7,
+      timeAccessed: '17/08/2022 01:25 PM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/stackoverflow-img.png',
+      title: 'Dharmesh Vala',
+      domainUrl: '150 MINS',
+      typee:'individual mentoring',
+    },
+  
+    {
+      id: 8,
+      timeAccessed: '27/09/2018 09:25 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
+      title: 'Tejas Tank',
+      domainUrl: '75min',
+      typee:'individual mentoring',
+    },
+    {
+      id: 9,
+      timeAccessed: '22/7/2019 09:00 AM',
+      logoUrl: 'https://assets.ccbp.in/frontend/react-js/google-img.png',
+      title: 'Yash Parsana',
+      domainUrl: '100 mins',
+      typee:'individual mentoring',
+    },
+  ]
+  const [searchInput,setsearchInput] = useState("");
+
+  const [historyList,sethistoryList] = useState(initialHistoryList);
+
+  const onChangeSearchInput = (event) => {
+    setsearchInput(event.target.value);
+
+    // console.log(event.target.value)
+  } 
+
+  const onDeleteHistoryItem = (id) => {
+   
+    const filteredHistoryList = historyList.filter(
+      eachHistoryItem => eachHistoryItem.id !== id,
+    )
+    sethistoryList(filteredHistoryList);
+    
+  }
+  const searchResults = historyList.filter( (eachHistoryItem) => 
+  eachHistoryItem.title.includes(searchInput)
+)
   return (
+    
     <>
       {
         <div
@@ -227,7 +334,7 @@ function MEvents() {
                   marginLeft: 30,
                 }}
               >
-                Your Events
+                Your History
               </div>
               <div
                 style={{
@@ -241,17 +348,57 @@ function MEvents() {
               ></div>
             </div>
    
+            <div className="app-container">
+            <div style={{ width: "100%" }}>
+            <div style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left" }}>
+
+                <div style={{ marginTop: 40 }} />
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "center"
+                    }}
+                >
+                    {/*search bar*/}
+                    <div className="container-serach-box-search-bar" style={{ width: "80%" }}>
+                        <SearchIcon style={{
+                            marginLeft: "10px",
+                            fontSize: "28px",
+                            color: "rgb(155, 155, 155)"
+                        }} />
+                        <div style={{ paddingLeft: 20 }} />
+                        <input
+                            type="text"
+                            className="search-bar-input-box"
+                            placeholder="Enter the project"
+                            value={searchinput}
+                            onChange={e => searchinputUpdate(e.target.value)}
+                        />
+                    </div>
+
+                    {/*Search button*/}
+                    <button className="search-bar-button" id='searchinput' >Search</button>
+
+                </div>
+            </div>
+        </div>
+
+            <div className="history-list-container">
+              {searchResults.length > 0 ? (
+                <ul className="history-list">
+                {searchResults.map(eachHistoryItem => (
+                  <UserHistoryList historyListDetails={eachHistoryItem} key={eachHistoryItem.id} onDeleteHistoryItem={onDeleteHistoryItem }/>
+                ))}
+              </ul>
+              ) : (<p className="Empty-history-message">There is no history to show</p>
+              )}
+            </div>
+          </div>
 
            
 
-            <div className="container">
-            <div className="row">
-            <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
            
-            </div>
-            </div>
             
           
                 <div
@@ -275,4 +422,4 @@ function MEvents() {
   );
 }
 
-export default MEvents;
+export default MHistory;
