@@ -31,7 +31,7 @@ const getAllresources = async (req, res, next) => {
 
     let myresources;
     try {
-        myresources = await resources.find();
+        myresources = await resources.find().populate('provider');
     }
     catch (err) {
         console.log("Error while fetching all resources : ", err);

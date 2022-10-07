@@ -333,10 +333,7 @@ export default function Home() {
                             />
                         )
                     })}
-                    {/* <Me style={{ marginTop: "15px" }} />
-                    <Me />
-                    <Me />
-                    <Me /> */}
+                   
                 </>
 
 

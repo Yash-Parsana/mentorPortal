@@ -14,7 +14,7 @@ const UserHistoryList = props => {
                 <p className="browsing-time">{timeAccessed}</p>
                 <div classNam="history-content-container">
                     <div className="content-card">
-                    <img src={logoUrl} alt="domain logo" className="logo-image" />
+                    <img src="img/nv1.jpg" alt="domain logo" className="logo-image" />
                     <p className="browser-title">{title}</p>
                     <p className="browser-title">{typee}</p>
                     <p className="history-url">{domainUrl}</p>
