@@ -74,7 +74,10 @@ function Me(props) {
             <hr class=" linestyle"></hr>
             <div className="row">
               <div className='col-8 start'>
-                <p class=" menparagraph" > As VP of Growth at EuroVPS, I had to make a LOT of decisions, daily. This got exhausting, especially if I had multiple good ideas on how to do something, but wasn't sure which to choose. Moments like these inspired me to build GrowthMentor. Does this resonate? If so, I'd love to try and help you.  </p>
+                <p class=" menparagraph" >
+                 {/* As VP of Growth at EuroVPS, I had to make a LOT of decisions, daily. This got exhausting, especially if I had multiple good ideas on how to do something, but wasn't sure which to choose. Moments like these inspired me to build GrowthMentor. Does this resonate? If so, I'd love to try and help you.  */}
+                 {props.intro}
+                  </p>
 
                 <Tabs defaultActiveKey="first" style={{}}>
                   <Tab eventKey="first" title="EXPERTISE">
