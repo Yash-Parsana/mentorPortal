@@ -1,19 +1,31 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { logcont } from "../logincontext/authcontext";
 import "./login.css";
 
 import Button from "@mui/material/Button";
 import { NavLink, Route, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
+import { login } from "../../actions/auth.action";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
-  const { login, user } = useContext(logcont);
+  // const { login, user } = useContext(logcont);
 
+  const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
   const [err, seterr] = useState("");
-
   const navigate = useNavigate();
+
+  const { isUserLoggedIn } = useSelector(state => state.auth)
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      navigate('/')
+    }
+  }, [isUserLoggedIn])
+  if (isUserLoggedIn) {
+    navigate('/')
+  }
 
   function loginuser() {
     if (!email.includes(".com")) {
@@ -21,15 +33,16 @@ function Login() {
     }
 
     seterr("");
-    login(email, pass)
-      .then((res) => {
-        alert("you are succesfully login!!");
-        navigate("/");
-        window.location.reload();
-      })
-      .catch((err) => {
-        seterr("Failed to Login.");
-      });
+    dispatch(login({ email, password: pass }))
+    // login(email, pass)
+    //   .then((res) => {
+    //     alert("you are succesfully login!!");
+    //     navigate("/");
+    //     window.location.reload();
+    //   })
+    //   .catch((err) => {
+    //     seterr("Failed to Login.");
+    //   });
   }
 
   return (

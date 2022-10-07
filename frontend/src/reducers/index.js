@@ -5,7 +5,8 @@ import { mentorReducer } from './mentor.reducer'
 
 const rootReducer = combineReducers({
     event: eventReducer,
-    mentor: mentorReducer
+    mentor: mentorReducer,
+    auth:authReducer
 })
 
 export default rootReducer

@@ -1,5 +1,11 @@
 const { STATES } = require("mongoose");
-const mentor = require('../models/mentorModel')
+const mentor = require('../models/mentorModel');
+const runReccomendedModel = require("../recom");
+
+const getRecommendedMentors = async (req, res, next) => {
+    let recommendedUsers = await runReccomendedModel();
+    console.log('recommendedUsers', recommendedUsers);
+}
 
 const getAllMentors = async (req, res, next) => {
 
@@ -85,4 +91,4 @@ const addMentorwithId = async (req,res) => {
 
 }
 
-module.exports = { getAllMentors, getMentorById, addMentorwithId };
+module.exports = { getAllMentors, getMentorById, addMentorwithId, getRecommendedMentors };

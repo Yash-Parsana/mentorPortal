@@ -1,5 +1,5 @@
 const express = require('express')
-
+const Mentor = require('../models/mentorModel')
 const User = require('../models/UserModel');
 
 
@@ -7,35 +7,50 @@ const signUp = async (req, res, next) => {
 
     const { name, email, mobile, password } = req.body;
 
-    console.log("mentor signup...");
-
     try {
         let userExist = await User.findOne({ email: email })
-    
-        if (userExist)
-        {
-            res.json({
-                success: false,
-                msg:"User already Exist"
-            })
+        if (userExist) {
+            if (userExist.password = password) {
+                let isUserMentor = await Mentor.findOne({ _id: userExist._id })
+
+                return res.json({
+                    success: true,
+                    response: {
+                        user: userExist, role: isUserMentor ? 'mentor' : 'user'
+                    }
+                })
+            } else {
+                return res.json({
+                    success: false,
+                    response: {
+                        msg: "Wrong Password"
+                    }
+                })
+            }
+
         }
         else {
             let newUser = new User();
-            newUser.name=name
-            newUser.email=email
-            newUser.moblie=mobile
-            newUser.password=password
-            
-            await newUser.save();
-    
+            newUser.name = name
+            newUser.email = email
+            newUser.moblie = mobile
+            newUser.password = password
+
+            const savedUser = await newUser.save();
+            return res.json({
+                success: true,
+                response: {
+                    user: savedUser, role: 'user',
+                }
+            })
+
         }
     }
-    catch (err)
-    {
-        console.log("Error in mentor signUp: ",err);
+    catch (err) {
+        console.log("Error in mentor signUp: ", err);
     }
 
-    
+
 }
 
 // const menteeSighUp = async (req, res, next)=> {
@@ -45,7 +60,7 @@ const signUp = async (req, res, next) => {
 
 //     try {
 //         let userExist = await Mentormodel.findOne({ email: email })
-    
+
 //         if (userExist)
 //         {
 //             res.json({
@@ -61,9 +76,9 @@ const signUp = async (req, res, next) => {
 //             newUser.password=password
 //             newUser.langauge=langauge
 //             newUser.intersts=intersts
-            
+
 //             await newUser.save();
-    
+
 //         }
 //     }
 //     catch (err)
@@ -75,4 +90,4 @@ const signUp = async (req, res, next) => {
 
 // const LoginMentor
 
-module.exports ={signUp};
+module.exports = { signUp };
