@@ -94,7 +94,7 @@ function MEvents() {
               <div style={{ marginTop: "auto", marginBottom: "auto" }}>
                 <div className="profile w-5 h-5">
                   <img
-                    src="https://www.bvmengineering.ac.in/images/BVM%20Logo-1.png"
+                    src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
                     className="w-110 h-110 rounded-circle"
                     height="100px"
                   />
@@ -136,57 +136,60 @@ function MEvents() {
 
             {/* options */}
             <div
-              className="editing"
-              style={{ position: "sticky", top: "130px", padding: "10px" }}
+            className="editing"
+            style={{ position: "sticky", top: "130px", padding: "10px" }}
+          >
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorpage"
             >
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegeprofile"
-              >
-                <SideBarOption icon="person" title="Profile" />
-              </NavLink>
+              <SideBarOption icon="person" title="Profile" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegedepartment"
-              >
-                <SideBarOption icon="book" title="Dashboard" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/dashboard"
+            >
+              <SideBarOption icon="dashboard" title="Dashboard" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegefaculty"
-              >
-                <SideBarOption icon="groups" title="Events" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorevents"
+            >
+              <SideBarOption icon="event"  title="Events" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegesubjects"
-              >
-                <SideBarOption icon="groups" title="History" />
-              </NavLink>
+            <NavLink
+            className=""
+            style={{ textDecoration: "none", color: "black" }}
+            to="/mentorresources"
+          >
+            <SideBarOption icon="book" title="resources" />
+          </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegesubjects"
-              >
-                <SideBarOption icon="groups" title="Notification" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorhistory"
+            >
+              <SideBarOption icon="history" title="History" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/Logout"
-              >
-                <SideBarOption icon="groups" title="Logout" />
-              </NavLink>
-            </div>
+
+            
+
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/Logout"
+            >
+              <SideBarOption icon="logout" title="Logout" />
+            </NavLink>
+          </div>
           </div>
           <div
             style={{
@@ -246,9 +249,7 @@ function MEvents() {
 
             <div className="container">
             <div className="row">
-            <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
-            <div className="col-md-4"><EventCard/></div>
+           events will come here
            
             </div>
             </div>

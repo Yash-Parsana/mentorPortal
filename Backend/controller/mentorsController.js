@@ -31,10 +31,10 @@ const getAllMentors = async(req,res,next) => {
 const getMentorById = async (req, res, next) => {
     
     const id = req.params
-    const userId = id
+    const userId = id.id
     let user;
     try {
-        user = await mentor.find({ _id: userId })
+        user = await mentor.find({ _id: userId})
     }
     catch (err)
     {

@@ -129,43 +129,52 @@ function UniFaculty() {
             <div style={{ border: "2px solid #F5F7F9", marginTop: 20 }}></div>
 
             {/* options */}
-            <div className="editing" style={{ position: "sticky", top: "130px", padding: "10px" }}>
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegeprofile"
-              >
-                <SideBarOption icon="person" title="Profile" />
-              </NavLink>
+            <div
+            className="editing"
+            style={{ position: "sticky", top: "130px", padding: "10px" }}
+          >
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/menterpage"
+            >
+              <SideBarOption icon="person" title="Profile" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegedepartment"
-              >
-                <SideBarOption icon="book" title="Department" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/dashboard"
+            >
+              <SideBarOption icon="book" title="Dashboard" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegefaculty"
-              >
-                <SideBarOption icon="groups" title="Faculty" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorevents"
+            >
+              <SideBarOption icon="groups" title="Events" />
+            </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegesubjects"
-              >
-                <SideBarOption icon="groups" title="Subjects" />
-              </NavLink>
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorhistory"
+            >
+              <SideBarOption icon="groups" title="History" />
+            </NavLink>
 
-              <NavLink className="" style={{textDecoration:"none",color:"black" }} to="/Logout">
-         <SideBarOption icon="groups" title="Logout" />
-         </NavLink>
-            </div>
+            
+
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/Logout"
+            >
+              <SideBarOption icon="groups" title="Logout" />
+            </NavLink>
+          </div>
           </div>
 
           <div

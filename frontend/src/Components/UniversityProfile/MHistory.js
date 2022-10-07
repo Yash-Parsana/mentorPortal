@@ -201,7 +201,7 @@ function MHistory() {
               <div style={{ marginTop: "auto", marginBottom: "auto" }}>
                 <div className="profile w-5 h-5">
                   <img
-                    src="https://www.bvmengineering.ac.in/images/BVM%20Logo-1.png"
+                    src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
                     className="w-110 h-110 rounded-circle"
                     height="100px"
                   />
@@ -249,7 +249,7 @@ function MHistory() {
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
-                to="/collegeprofile"
+                to="/mentorpage"
               >
                 <SideBarOption icon="person" title="Profile" />
               </NavLink>
@@ -257,41 +257,44 @@ function MHistory() {
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
-                to="/collegedepartment"
+                to="/dashboard"
               >
-                <SideBarOption icon="book" title="Dashboard" />
+                <SideBarOption icon="dashboard" title="Dashboard" />
               </NavLink>
 
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
-                to="/collegefaculty"
+                to="/mentorevents"
               >
-                <SideBarOption icon="groups" title="Events" />
+                <SideBarOption icon="event" title="Events" />
               </NavLink>
+
+              <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorresources"
+            >
+              <SideBarOption icon="book" title="resources" />
+            </NavLink>
 
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
-                to="/collegesubjects"
+                to="/mentorhistory"
               >
-                <SideBarOption icon="groups" title="History" />
+                <SideBarOption icon="history" title="History" />
               </NavLink>
 
-              <NavLink
-                className=""
-                style={{ textDecoration: "none", color: "black" }}
-                to="/collegesubjects"
-              >
-                <SideBarOption icon="groups" title="Notification" />
-              </NavLink>
+
+              
 
               <NavLink
                 className=""
                 style={{ textDecoration: "none", color: "black" }}
                 to="/Logout"
               >
-                <SideBarOption icon="groups" title="Logout" />
+                <SideBarOption icon="logout" title="Logout" />
               </NavLink>
             </div>
           </div>

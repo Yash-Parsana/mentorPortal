@@ -258,7 +258,7 @@ tw-shadow-sm {
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    color: black !important;
+    /* color: black !important; */
     text-decoration: none;
     font-weight: 500;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;

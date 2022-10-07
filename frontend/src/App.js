@@ -27,6 +27,7 @@ import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
 import Profile from './Components/Profile/Profile';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
+import MResources from './Components/UniversityProfile/MResources';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
       <Route index path="/mentorpage" element={<UniProfile/>} />
       <Route index path="/mentorevents" element={<MEvents/>} />
       <Route index path="/mentorhistory" element={<MHistory/>} />
+      <Route index path="/mentorresources" element={<MResources/>} />
     
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />

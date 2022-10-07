@@ -146,7 +146,7 @@ export default function Home() {
     };
     return (
         <>
-            <Header index={1} />
+            <Header index={2} />
            
             <div style={{ width: "100%" }}>
                 <div
@@ -282,7 +282,7 @@ export default function Home() {
                             <div className="tag">
                                 <label htmlFor="University">
                                     <img src={"img/University.png"} alt="University" />
-                                    <p>University</p>
+                                    <p>Expertise</p>
                                 </label>
                                 <div
                                     className="sign-in-input-field-container"

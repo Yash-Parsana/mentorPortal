@@ -49,14 +49,14 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                  {(index == 1) ? "nav-link active black" : "nav-link"} to="/mentor">
+                  {(index == 1) ? "nav-link active black" : "nav-link"} to="/">
                   Find Mentor
                 </NavLink>
               </div>
 
               <div className="tab-container">
                 <NavLink className=
-                {(index==1)? "nav-link active black" : "nav-link" } to="/event">
+                {(index==2)? "nav-link active black" : "nav-link" } to="/event">
                   Events
                 </NavLink>
               </div>
@@ -67,12 +67,12 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 5) ? "nav-link active" : "nav-link"} to="/roadmap">
+                <NavLink className={(index == 4) ? "nav-link active" : "nav-link"} to="/roadmap">
                   Roadmap
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 6) ? "nav-link active" : "nav-link"} to="/community">
+                <NavLink className={(index == 5) ? "nav-link active" : "nav-link"} to="/community">
                   Community
                 </NavLink>
               </div>
@@ -82,20 +82,16 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 0) ? "nav-link active" : "nav-link"} to="/aboutus">
+                <NavLink className={(index == 7) ? "nav-link active" : "nav-link"} to="/aboutus">
                   About
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 4) ? "nav-link active" : "nav-link"} to="/contact">
+                <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
                   Contact
                 </NavLink>
               </div>
-              <div className="tab-container">
-                <NavLink className={(index === 7) ? "nav-link active" : "nav-link"} to="/myblog">
-                  my blogs
-                </NavLink>
-              </div>
+              
 
             </div>
           </div>
@@ -110,7 +106,7 @@ export default function Header(props) {
           >
             <div className='me-3' style={{ width: '50px' }}>
               <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                <NotificationsIcon style={{ width: '50px', height: '50px', color: '#3d82be' }} />
+                <NotificationsIcon style={{ width: '55px', height: '40px', color: '#3d82be' }} />
               </OverlayTrigger>
             </div>
             {/* <OverlayTrigger trigger="click" placement="right" overlay={popover}>
