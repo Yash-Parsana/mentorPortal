@@ -3,7 +3,8 @@ import "./me.css"
 import Tabs from 'react-bootstrap/Tabs';
 import Tag from "../Common/Tag";
 import Tab from 'react-bootstrap/Tab';
-function Me() {
+import { Link } from 'react-router-dom';
+function Me(props) {
   const Tags = ['WEB', 'REACT', 'MERN', 'COUNCELLING'];
   const visibilityStyle = {
     backgroundColor: "#D5E3FE",
@@ -15,22 +16,23 @@ function Me() {
   return (
 
     <div className="popo">
-    <div className="container">
-    <div className="row width-card-menter " >
-    <div className="main-div mt-3 p-3 col-md-8 col-sm-6">
-    <div className="row">
-    <div class="tw-rounded-xl tw-bg-white tw-shadow-sm tw-relative tw-overflow-hidden tw-p-5">
-    <div class="part1">
-    <div className='left'>
-    <img alt=" menter avatar" test_id="avatar" class="imgstyle" src="img/nv1.jpg" lazy="loaded"></img>
-    </div>
+      <div className="container">
+        <div className="row width-card-menter " >
+          <div className="main-div mt-3 p-3 col-md-8 col-sm-6">
+            <div className="row">
+              <div class="tw-rounded-xl tw-bg-white tw-shadow-sm tw-relative tw-overflow-hidden tw-p-5">
+                <div class="part1">
+                  <div className='left'>
+                    {/* <img alt=" menter avatar" test_id="avatar" class="imgstyle" src="img/nv1.jpg" lazy="loaded"></img> */}
+                    <img alt=" menter avatar" test_id="avatar" class="imgstyle" src="img/nv1.jpg" lazy="loaded"></img>
+                  </div>
 
                   <div className='mid'>
                     <div className='mentor-name'>
                       <div class="mentor-name ">
                         <a href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="menter-link">
                           <h2 class="" style={{ fontWeight: "bold" }}>
-                            Dharmesh Vala
+                            {props.name}
                           </h2></a>
                       </div>
                     </div>
@@ -130,8 +132,11 @@ function Me() {
 
                 <div class="tw-mt-4 tw-flex tw-flex-col tw-space-y-2" style={{ marginTop: "1rem", display: "flex", flexDirection: "column" }}>
                   <div class="tw-inline-block">
-                    <button class="search-bar-button edited1">
-                      Request a Call </button></div>
+                    <a href="https://morning-escarpment-67980.onrender.com/">
+                      <button class="search-bar-button edited1">
+                        Request a Call </button>
+                    </a>
+                  </div>
                   <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2">
                     View Profile </button></div>
               </div>

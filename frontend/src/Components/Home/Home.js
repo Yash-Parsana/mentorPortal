@@ -8,8 +8,21 @@ import MenterCard from './MenterCard';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import SearchIcon from '@mui/icons-material/Search';
 import Me from './Me';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllMentors } from '../../actions/mentor.action';
 
 export default function Home() {
+
+    const dispatch = useDispatch();
+
+    const { mentors } = useSelector(state => state.mentor)
+    mentors ? console.log('mentors', mentors) : console.log('nothing');
+
+
+    useEffect(() => {
+        dispatch(getAllMentors())
+    }, [])
+
 
     // var [projectArray , setProjectArray] = useState([]);
     // const [idArray , setIdArray] = useState();
@@ -74,6 +87,8 @@ export default function Home() {
     //     });
     //   })
     // }, []);
+
+
 
     const [projects, setProjects] = useState();
 
@@ -309,10 +324,17 @@ export default function Home() {
             <div className="container">
 
                 <>
-                    <Me style={{ marginTop: "15px" }} />
+                    {mentors.map((mentor) => {
+                        return (
+                            <Me style={{ marginTop: "15px" }}
+                                name={mentor.mentor.name}
+                            />
+                        )
+                    })}
+                    {/* <Me style={{ marginTop: "15px" }} />
                     <Me />
                     <Me />
-                    <Me />
+                    <Me /> */}
                 </>
 
 

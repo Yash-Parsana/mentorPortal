@@ -106,7 +106,7 @@ export default function Header(props) {
           >
             <div className='me-3' style={{ width: '50px' }}>
               <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                <NotificationsIcon style={{ width: '55px', height: '40px', color: '#3d82be' }} />
+                <NotificationsIcon style={{ width: '55px', height: '40px', color: '#3d82be',cursor :'pointer' }} />
               </OverlayTrigger>
             </div>
            

@@ -1,92 +1,88 @@
 const { STATES } = require("mongoose");
 const mentor = require('../models/mentorModel')
 
-const getAllMentors = async(req,res,next) => {
-    
+const getAllMentors = async (req, res, next) => {
+
     let users;
     try {
-        users = await mentor.find();
+        users = await mentor.find().populate('mentor');
     }
-    catch (err)
-    {
+    catch (err) {
         return res.status(400).json({
             success: false,
             response: {
-                message:err.message
+                message: err.message
             }
         })
     }
-    if (!users)
-    {
+    if (!users) {
         return res.status(404).json({
             success: false,
             response: {
-                message:"User Not Found"
+                message: "User Not Found"
             }
         })
     }
-    return res.status(200).json({success:true,users})
+    return res.status(200).json({ success: true, users })
 }
 
 const getMentorById = async (req, res, next) => {
-    
+
     const id = req.params
     const userId = id.id
     let user;
     try {
-        user = await mentor.find({ _id: userId})
+        user = await mentor.find({ _id: userId }).populate('mentor')
     }
-    catch (err)
-    {
+    catch (err) {
         res.status(400).json({
             success: false,
-            message:err
+            message: err
         })
     }
-    if (!user)
-    {
+    if (!user) {
         res.status(400).json({
             success: false,
-            message:"User not Exist"
+            message: "User not Exist"
         })
     }
     return res.status(200).json({ success: true, user });
 }
 
-const addMentorwithId = async () => {
-    
-    let newmentor=new mentor();
+const addMentorwithId = async (req,res) => {
+
+    let newmentor = new mentor();
     try {
-        let id = req.params;
-        const { name, photo, followes, langauge, experience, industry,domain, tools, district, state, intro } = req.body;
+        let { id } = req.params;
+        const { mentor, photo, followers, language, experience, industry, domain, tools, district, state, intro } = req.body;
         newmentor._id = id;
-        newmentor.name = name;
+        newmentor.mentor = mentor;
         newmentor.photo = photo
-        newmentor.followes = followes
-        newmentor.langauge = langauge;
+        newmentor.followers = followers
+        newmentor.language = language;
         newmentor.experience = experience;
         newmentor.industry = industry;
-        newmentor.domain=domain
+        newmentor.domain = domain
         newmentor.tools = tools
         newmentor.district = district;
         newmentor.state = state
         newmentor.intro = intro
-        
-        newmentor.save();
+
+        await newmentor.save();
         res.status(200).json({
             success: true,
-            message:"Mentor Addaed"
+            message: "Mentor Addaed",
+            newmentor
         })
     }
-    catch (err)
-    {
+    catch (err) {
         console.log("Error while adding new mentor : ", err);
         res.status(400).json({
             success: false,
-            message:"Mentor can not be added"
+            message: "Mentor can not be added"
         })
     }
 
 }
 
-module.exports={getAllMentors,getMentorById,addMentorwithId};
+module.exports = { getAllMentors, getMentorById, addMentorwithId };
