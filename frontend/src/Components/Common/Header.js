@@ -49,14 +49,14 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                  {(index == 1) ? "nav-link active black" : "nav-link"} to="/">
+                  {(index === 1) ? "nav-link active black" : "nav-link"} to="/mentor">
                   Find Mentor
                 </NavLink>
               </div>
 
               <div className="tab-container">
                 <NavLink className=
-                {(index==2)? "nav-link active black" : "nav-link" } to="/event">
+                {(index===2)? "nav-link active black" : "nav-link" } to="/event">
                   Events
                 </NavLink>
               </div>

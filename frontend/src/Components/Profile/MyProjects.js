@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Cookies from "universal-cookie";
+// import Cookies from "universal-cookie";
 import { Navigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -14,11 +14,11 @@ export default function MyProjects(props) {
   } else console.log("subject_id is undefined");
   const [projects, setProjects] = useState();
 
-  const cookies = new Cookies();
-  const UserType = cookies.get("userType");
+  // const cookies = new Cookies();
+  // const UserType = cookies.get("userType");
 
-  const userId = cookies.get("userId");
-  console.log(userId);
+  // const userId = cookies.get("userId");
+  // console.log(userId);
   const sendReq = async () => {
     if (props.subject_id != null) {
       console.log("We are going to show professor project");
@@ -34,7 +34,7 @@ export default function MyProjects(props) {
     }
     console.log("We are going to show student's project");
     const res = await axios
-      .get(`http://localhost:5000/api/Project/UserId/${userId}`)
+      .get(`http://localhost:5000/api/Project/UserId/${1}`)
       .catch((err) => console.log(err));
     const data = await res.data;
     console.log(data);

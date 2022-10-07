@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-import Cookies from "universal-cookie";
+// import Cookies from "universal-cookie";
 import { Navigate, Link, useParams } from "react-router-dom";
 import Header from "../Common/Header";
 import "./StudentProfile.css";
@@ -23,10 +23,10 @@ export default function StudentProfile() {
     marginRight: 10,
   };
   
-  const cookies = new Cookies();
-  const UserType = cookies.get("userType");
+  // const cookies = new Cookies();
+  // const UserType = cookies.get("userType");
 
-  const studentId = cookies.get("uTypeId");
+  // const studentId = cookies.get("uTypeId");
 
   const sendReq = async () => {
     const res = await axios
