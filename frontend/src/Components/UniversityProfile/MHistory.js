@@ -98,7 +98,7 @@ function MHistory() {
       domainUrl: '18 mins',
     },
     {
-      id: 8,
+      id: 3,
       timeAccessed: '27/09/2018 09:25 AM',
       logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
       title: 'Tejas Tank',
@@ -106,7 +106,7 @@ function MHistory() {
       typee:'individual mentoring',
     },
     {
-      id: 8,
+      id: 4,
       timeAccessed: '27/09/2018 09:25 AM',
       logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
       title: 'Tejas Tank',
@@ -114,7 +114,7 @@ function MHistory() {
       typee:'individual mentoring',
     },
     {
-      id: 8,
+      id: 5,
       timeAccessed: '27/09/2018 09:25 AM',
       logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
       title: 'Tejas Tank',
@@ -122,7 +122,7 @@ function MHistory() {
       typee:'individual mentoring',
     },
     {
-      id: 8,
+      id: 6,
       timeAccessed: '27/09/2018 09:25 AM',
       logoUrl: 'https://assets.ccbp.in/frontend/react-js/gmail-img.png',
       title: 'Tejas Tank',

@@ -9,7 +9,7 @@ const resources = new mongoose.Schema({
     provider: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'mentor'
+        ref: 'User'
     },
     tags: {
         type: [String],

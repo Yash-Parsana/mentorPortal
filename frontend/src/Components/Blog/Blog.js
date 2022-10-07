@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Common/Header'
 import Tag from '../Common/Tag'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { Link } from 'react-router-dom';
 
 const Blogs = () => {
 
@@ -79,7 +80,9 @@ const Blogs = () => {
                                 <div class="card-body">
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div>
-                                            <h5 class="card-title text-start ">{blogs.title}</h5>
+                                            <Link to='/blogpage' style={{ color: 'black' }}>
+                                                <h5 class="card-title text-start ">{blogs.title}</h5>
+                                            </Link>
                                         </div>
                                         <div className='d-flex justify-content-evenly align-items-center' style={{ width: '11%' }}>
                                             <Tag

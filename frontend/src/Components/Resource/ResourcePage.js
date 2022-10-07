@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Common/Header';
 // import ProjectCard from '../Profile/ProjectCard';
 import "../Event/CSS/EventDiv.css"
@@ -9,28 +9,24 @@ import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllResources } from '../../actions/resource.action';
 
 const ResourcePage = () => {
     // const [isHandi, setishan] = useState(false);
 
 
+    const dispatch = useDispatch();
+    const { resources } = useSelector(state => state.resource)
+
+
+    useEffect(() => {
+        dispatch(getAllResources())
+        console.log('hello res..', resources);
+
+    }, [])
+
     const [projects, setProjects] = useState();
-
-    // const sendReq = async () => {
-    //     const res = await axios
-    //         .get("http://localhost:5000/api/project")
-    //         .catch((err) => console.log(err));
-    //     const data = await res.data;
-
-    //     console.log(data);
-    //     return data;
-    // };
-
-    // useEffect(() => {
-    //     sendReq().then((data) => {
-    //         setProjects(data.projects);
-    //     });
-    // }, []);
 
 
     const [searchinput, searchinputUpdate] = useState("");
@@ -85,7 +81,7 @@ const ResourcePage = () => {
     };
     return (
         <>
-            <Header  index={6} />
+            <Header index={6} />
             <div style={{ width: "100%" }}>
                 <div
                     style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left" }}
@@ -245,65 +241,34 @@ const ResourcePage = () => {
             </div>
             <div className=' d-flex justify-content-around mt-5 mb-3' style={{ backgroundColor: 'aliceblue' }}>
                 <div className='d-flex justify-content-around my-2 ' style={{ width: '80%' }}>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
-                        <Card.Body>
-                            <Card.Title className='justify-content-around'>Title: <small>Information Security</small></Card.Title>
-                            <Card.Title className='justify-content-around'>Author: <small>Dr.Jhon</small></Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Card.Text className='d-flex justify-content-center mt-2' style={{ opacity: 0.6 }}>
-                                <small>Upload by Yash parsana</small>
-                            </Card.Text>
-                            <Button variant="light" className='ms-5 mt-2 justify-content-center align-items-center'>
-                                <div className='d-flex justify-content-center align-items-center'>
-                                    <ArrowDownwardIcon /> Download
-                                </div>
-                            </Button>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
-                        <Card.Body>
-                            <Card.Title className='justify-content-around'>Title: <small>Information Security</small></Card.Title>
-                            <Card.Title className='justify-content-around'>Author: <small>Dr.Jhon</small></Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Card.Text className='d-flex justify-content-center mt-2' style={{ opacity: 0.6 }}>
-                                <small>Upload by Tejas Tank</small>
-                            </Card.Text>
-                            <Button variant="light" className='ms-5 mt-2 justify-content-center align-items-center'>
-                                <div className='d-flex justify-content-center align-items-center'>
-                                    <ArrowDownwardIcon /> Download
-                                </div>
-                            </Button>
-                        </Card.Body>
-                    </Card>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
 
-                        <Card.Body>
+                    {
+                        resources && resources.length > 0 &&
+                        resources.map((resource) => {
+                            return (
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
+                                    <Card.Body>
+                                        <Card.Title className='justify-content-around'>Title: <small>{resource.name}</small></Card.Title>
+                                        <Card.Title className='justify-content-around'>Author: <small>{resource.provider.name}</small></Card.Title>
+                                        <Card.Text>
+                                            {resource.description}
+                                        </Card.Text>
+                                        <Card.Text className='d-flex justify-content-center mt-2' style={{ opacity: 0.6 }}>
+                                            <small>Upload by Yash parsana</small>
+                                        </Card.Text>
+                                        <Button variant="light" className='ms-5 mt-2 justify-content-center align-items-center'>
+                                            <div className='d-flex justify-content-center align-items-center'>
+                                                <ArrowDownwardIcon /> Download
+                                            </div>
+                                        </Button>
+                                    </Card.Body>
+                                </Card>
+                            )
+                        })
+                    }
 
-                            <Card.Title className='justify-content-around'>Title: <small>Information Security</small></Card.Title>
-                            <Card.Title className='justify-content-around'>Author: <small>Dr.Jhon</small></Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Card.Text className='d-flex justify-content-center mt-2' style={{ opacity: 0.6 }}>
-                                <small>Upload by Jay Sojitra</small>
-                            </Card.Text>
-                            <Button variant="light" className='ms-5 mt-2 justify-content-center align-items-center'>
-                                <div className='d-flex justify-content-center align-items-center'>
-                                    <ArrowDownwardIcon /> Download
-                                </div>
-                            </Button>
-                        </Card.Body>
-                    </Card>
+
                 </div>
             </div>
 
