@@ -29,10 +29,17 @@ export default function Roadmap() {
         className="card-container-main"
         style={{ marginLeft: 50, marginRight: 50 }}
       >
+      <div className="container">
+      <div className="row">
+      
         {roadmaps &&
           roadmaps.map((roadmap, index) => (
+            <div className="col-4">
             <RoadmapCard key={index} id={roadmap._id} rp={roadmap} />
+            </div>
           ))}
+      </div>
+      </div>
       </div>
     </div>
   );

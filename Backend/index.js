@@ -21,7 +21,7 @@ const eventRouter = require('./routes/eventRouter')
 const historyRouter = require('./routes/historyRouter')
 const resourceRouter=require('./routes/resourcesRouter')
 const blogRouter=require('./routes/blogRouter')
-
+const roadmapRoute=require('./routes/roadmap-routes');
 
 app.use(cors())
 app.use('/api/auth', signupLoginRoute);
@@ -30,6 +30,7 @@ app.use('/api/events', eventRouter);
 app.use('/api/history', historyRouter);
 app.use('/api/resources', resourceRouter);
 app.use('/api/blog', blogRouter);
+app.use('/api/roadmap' , roadmapRoute);
 
 
 const PORT = 5000||process.env.PORT;

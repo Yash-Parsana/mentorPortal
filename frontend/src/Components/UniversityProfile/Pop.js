@@ -8,13 +8,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./pop.css"
 
-import Cookies from 'universal-cookie'
+// import Cookies from 'universal-cookie'
 import { Navigate } from "react-router-dom";
 
-const cookies = new Cookies();
-const UserType = cookies.get('userType');
+// const cookies = new Cookies();
+// const UserType = cookies.get('userType');
 
-const CollegeId = cookies.get('uTypeId');
+// const CollegeId = cookies.get('uTypeId');
 
 class Pop extends React.Component {
 
@@ -26,6 +26,8 @@ class Pop extends React.Component {
       name: "",
       modalInputName: "",
       redirect:false,
+      tagList:[],
+      timeframe:""
     };
   }
 
@@ -55,34 +57,46 @@ class Pop extends React.Component {
     });
   }
 
+setToTaglist(e, k) {
+  console.log(this.state.tagList)
+    if (e.keyCode == 13) {
+      this.setState({ tagList: [...this.state.tagList, k] });
+     
+      e.target.value = "";
+    }
+  };
+
+  
   render() {
-    const sendRequest = async () => {
-      console.log(this.state.modalInputName);
-      const res = await axios
-        .post("http://localhost:5000/api/department/add", {
-          DepartName:this.state.modalInputName,
-          CollegeId : CollegeId
-        })
-        .catch((err) => console.log(err));
-      const data = await res.data;
-      return data;
-    };
+    // const sendRequest = async () => {
+    //   console.log(this.state.modalInputName);
+    //   const res = await axios
+    //     .post("http://localhost:5000/api/department/add", {
+    //       DepartName:this.state.modalInputName,
+    //       CollegeId : CollegeId
+    //     })
+    //     .catch((err) => console.log(err));
+    //   const data = await res.data;
+    //   return data;
+    // };
+
+
 
     function refreshPage() {
       window.location.reload(false);
     }
-    const handleSubmit = (e) => {
+    // const handleSubmit = (e) => {
      
-      e.preventDefault();
-      console.log(this.state.modalInputName);
-      sendRequest()
-        .then((data) => console.log(data))
-        .then(() => { 
-          this.state.redirect && <navigate to='/collegedepartments' replace={true}/>
-       });
-       this.modalClose();
-       refreshPage();
-    };
+    //   e.preventDefault();
+    //   console.log(this.state.modalInputName);
+    //   sendRequest()
+    //     .then((data) => console.log(data))
+    //     .then(() => { 
+    //       this.state.redirect && <navigate to='/collegedepartments' replace={true}/>
+    //    });
+    //    this.modalClose();
+    //    refreshPage();
+    // };
     return (
       <div className="App">
        
@@ -98,27 +112,43 @@ class Pop extends React.Component {
         }}
       >
         <Button
-        title={"+ Add Department"}
+        title={"+ Add Skills"}
         
         />
       </div>
         </a>
         <Modal show={this.state.modal} index={"0"} handleClose={(e) => this.modalClose(e)}>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Enter Department Name:</label>
-            <div style={{ width: "-webkit-fill-available" }}>
-            <input
-            className="form-control input-field"
-            name="modalInputName"
-          
-              onChange={(e) => this.handleChange(e)}
-              placeholder={"Ex: mihasan@bvmengineering.ac.in"}
-              value={this.state.modalInputName}
+        <form >
+        <div className="form-group row" style={{marginTop: -10}}>
+        <label style={{textAlign: 'left',}} for="desc" className="col-sm-2 downn col-form-label">
+            <strong>Expertise:</strong>
+          </label>
+        <input
+              className="form-control form-input"
+              name="tagd"
+              id="tag"
+              placeholder="Ex. Web Development"
+              onKeyUp={(e) =>  this.setToTaglist(e, this.state.timeframe)}
+              onChange={(e) => this.setState({ timeframe: e.target.value })}
+              
             />
-          </div>
-            
-          </div>
+            </div>
+
+            <div className="a_fillter">
+
+            <div className="tags">
+              {this.state.tagList.map((ele) => {
+                return (
+                  <div className="tag">
+                    <p>{ele}</p>
+                    {/* <img src={('img/close.png')} alt="cross" className='close' onClick={}/> */}
+                  </div>
+                );
+              })}
+            </div>
+            </div>
+   
+       
           <div className="form-group">
             <div
               style={{

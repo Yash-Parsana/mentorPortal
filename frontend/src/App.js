@@ -31,6 +31,8 @@ import MResources from './Components/UniversityProfile/MResources';
 import StudentProfile from './Components/Profile/StudentProfile';
 import MyProfile from './Components/Profile/MyProfile';
 import BecomeMenter from './Components/ProjectUpload/BecomeMenter';
+import Pop from './Components/UniversityProfile/Pop';
+import Roadmap from './Components/Roadmap/Roadmap';
 
 
 function App() {
@@ -55,6 +57,8 @@ function App() {
       <Route index path="/profile" element={<Profile/>} />
       <Route index path="/profilehistory" element={<StudentProfile/>} />
       <Route index path="/menteeprofile" element={<MyProfile/>} />
+      <Route index path="/pop" element={<Pop/>} />
+      <Route index path="/roadmap" element={<Roadmap/>} />
       
       <Route index path="/becomementor" element={<BecomeMenter/>} />
 
