@@ -3,8 +3,28 @@ const mentor = require('../models/mentorModel');
 const runReccomendedModel = require("../recom");
 
 const getRecommendedMentors = async (req, res, next) => {
-    let recommendedUsers = await runReccomendedModel();
-    console.log('recommendedUsers', recommendedUsers);
+    const { interest } = req.params
+    let data = await runReccomendedModel(interest);
+    data = JSON.parse(data);
+    const columns = data.columns;
+    let recommendedUsers = data.data.map((mentor) => {
+        const newObject = {}
+        mentor.map((property, index) => {
+            newObject[columns[index]] = property;
+        })
+        return newObject;
+    })
+    const recommendedMentors = recommendedUsers.filter((user, index) => {
+        if (index < 5) {
+            return user
+        }
+    });
+
+    // console.log('recommendedUsers', recommendedMentors);
+    return res.status(200).json({
+        success: true,
+        recommendedMentors: recommendedMentors
+    })
 }
 
 const getAllMentors = async (req, res, next) => {
@@ -16,17 +36,13 @@ const getAllMentors = async (req, res, next) => {
     catch (err) {
         return res.status(400).json({
             success: false,
-            response: {
-                message: err.message
-            }
+            message: err.message
         })
     }
     if (!users) {
         return res.status(404).json({
             success: false,
-            response: {
-                message: "User Not Found"
-            }
+            message: "User Not Found"
         })
     }
     return res.status(200).json({ success: true, users })
@@ -55,7 +71,7 @@ const getMentorById = async (req, res, next) => {
     return res.status(200).json({ success: true, user });
 }
 
-const addMentorwithId = async (req,res) => {
+const addMentorwithId = async (req, res) => {
 
     let newmentor = new mentor();
     try {

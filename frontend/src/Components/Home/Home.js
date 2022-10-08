@@ -10,6 +10,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Me from './Me';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllMentors } from '../../actions/mentor.action';
+import SearchInterestBasedMentors from '../Project/SearchBar';
+import RecommendedMentor from './RecommendedMentor';
 
 export default function Home() {
 
@@ -23,6 +25,9 @@ export default function Home() {
         dispatch(getAllMentors())
     }, [])
 
+    const { recommendedMentors } = useSelector(state => state.mentor)
+
+    console.log('recommendedMentors', recommendedMentors)
 
     // var [projectArray , setProjectArray] = useState([]);
     // const [idArray , setIdArray] = useState();
@@ -176,8 +181,7 @@ export default function Home() {
                             justifyContent: "center",
                         }}
                     >
-                        {/*search bar*/}
-                        <div
+                        {/* <div
                             className="container-serach-box-search-bar"
                             style={{ width: "80%" }}
                         >
@@ -197,14 +201,14 @@ export default function Home() {
                             />
                         </div>
 
-                        {/*Search button*/}
                         <button
                             className="search-bar-button"
                             id="searchinput"
                             onClick={filter2}
                         >
                             Search
-                        </button>
+                        </button> */}
+                        <SearchInterestBasedMentors />
                     </div>
                 </div>
             </div>
@@ -321,7 +325,21 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <div className="container">
 
+                <>
+                    {recommendedMentors.length > 0 && recommendedMentors.map((mentor) => {
+                        return (
+                            <RecommendedMentor style={{ marginTop: "15px" }}
+                                mentor={mentor}
+                            />
+                        )
+                    })}
+
+                </>
+
+
+            </div>
             <div className="container">
 
                 <>

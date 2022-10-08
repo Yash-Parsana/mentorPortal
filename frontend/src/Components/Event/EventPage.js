@@ -94,7 +94,7 @@ const EventPage = () => {
     };
     return (
         <>
-            <Header index={2}  />
+            <Header />
             <div style={{ width: "100%" }}>
                 <div
                     style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left" }}
@@ -107,7 +107,7 @@ const EventPage = () => {
                             justifyContent: "center",
                         }}
                     >
-                        {/*search bar*/}
+                        
                         <div
                             className="container-serach-box-search-bar"
                             style={{ width: "80%" }}
@@ -127,8 +127,7 @@ const EventPage = () => {
                                 onChange={(e) => searchinputUpdate(e.target.value)}
                             />
                         </div>
-
-                        {/*Search button*/}
+                        
                         <button
                             className="search-bar-button"
                             id="searchinput"
