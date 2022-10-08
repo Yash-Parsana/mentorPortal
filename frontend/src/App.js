@@ -30,6 +30,7 @@ import Myprofilehistory from './Components/Profile/MyProfileHistory';
 import MResources from './Components/UniversityProfile/MResources';
 import StudentProfile from './Components/Profile/StudentProfile';
 import MyProfile from './Components/Profile/MyProfile';
+import BecomeMenter from './Components/ProjectUpload/BecomeMenter';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
       <Route index path="/profilehistory" element={<StudentProfile/>} />
       <Route index path="/menteeprofile" element={<MyProfile/>} />
       
+      <Route index path="/becomementor" element={<BecomeMenter/>} />
 
       <Route exact path="/slogin" element={<Studentlog />}></Route>
       <Route exact path="/ssignin" element={<StudentSign />}></Route>
