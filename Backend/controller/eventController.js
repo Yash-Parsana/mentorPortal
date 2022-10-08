@@ -123,7 +123,7 @@ const getEventByMentorId = async (req, res, next) => {
 
     if (id) {
         console.log(id);
-        event.findOne({ mentor: id })
+        event.findOne({ mentor : id })
             .populate('mentor')
             .exec((error, event) => {
                 if (error) {

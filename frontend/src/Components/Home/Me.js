@@ -14,7 +14,6 @@ function Me(props) {
     margin: "4px"
   };
   return (
-
     <div className="popo">
       <div className="container">
         <div className="row width-card-menter " >
@@ -75,9 +74,9 @@ function Me(props) {
             <div className="row">
               <div className='col-8 start'>
                 <p class=" menparagraph" >
-                 {/* As VP of Growth at EuroVPS, I had to make a LOT of decisions, daily. This got exhausting, especially if I had multiple good ideas on how to do something, but wasn't sure which to choose. Moments like these inspired me to build GrowthMentor. Does this resonate? If so, I'd love to try and help you.  */}
-                 {props.intro}
-                  </p>
+                  {/* As VP of Growth at EuroVPS, I had to make a LOT of decisions, daily. This got exhausting, especially if I had multiple good ideas on how to do something, but wasn't sure which to choose. Moments like these inspired me to build GrowthMentor. Does this resonate? If so, I'd love to try and help you.  */}
+                  {props.intro}
+                </p>
 
                 <Tabs defaultActiveKey="first" style={{}}>
                   <Tab eventKey="first" title="EXPERTISE">
@@ -140,14 +139,18 @@ function Me(props) {
                         Request a Call </button>
                     </a>
                   </div>
-                  <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2">
-                    View Profile </button></div>
+                  <a href = '/profilehistory'>
+                    <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2">
+                      View Profile </button>
+                  </a>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
 
   )
 }
