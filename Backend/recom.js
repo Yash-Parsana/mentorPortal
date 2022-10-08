@@ -3,21 +3,27 @@ const { PythonShell } = require('python-shell')
 var path = "./popularity_based_recom_sys.py"
 
 
-function runReccomendedModel() {
-    let recommendedUsers;
-    
+async function runReccomendedModel(interest) {
+    // let recommendedUsers;
+
     let options = {
         scriptPath: path,
-        args: ["advertising"]
+        args: [interest]
     }
-    PythonShell.run("../popularity_based_recom_sys.py", options, (err, res) => {
-        if (err) console.log(err);
-        if (res) {
-            recommendedUsers = res
-            console.log('rrrreeesss', res);
+
+    const { success, err = '', results } = await new Promise(
+        (resolve, reject) => {
+            PythonShell.run("../popularity_based_recom_sys.py", options, (err, results) => {
+                if (err) reject({ success: false, err });
+                if (results) {
+                    resolve({ success: true, results });
+                }
+            })
         }
-    })
-    return recommendedUsers
+    );
+
+    // console.log('recommendedUsers', results)
+    return results
 }
 module.exports = runReccomendedModel
 // py ma sys.argv[index]  ane import sys
