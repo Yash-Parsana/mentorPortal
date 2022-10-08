@@ -134,14 +134,10 @@ dvala453@gmail.com
             title="My Profile"
             onClick={handleMyProfileClick}
           />
-          <SideBarOption
-            icon="book"
-            title="My Project"
-            onClick={handleMyProjectClick}
-          />
+          
            <SideBarOption
             icon="book"
-            title="Upload Project"
+            title="History"
             onClick={handleMyProjectUpload}
           />
           <SideBarOption

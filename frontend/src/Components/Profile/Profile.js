@@ -491,7 +491,7 @@ export default function Profile() {
                 Edit Picture
               </div>
             </button>
-            <div style={{ fontFamily: 'poppins', fontWeight: 500, fontSize: 22 }}>Level</div>
+            <div style={{ fontFamily: 'poppins', fontWeight: 500, fontSize: 22 }}>Point</div>
 
             <hr className="horizontal-line"></hr>
 
@@ -502,7 +502,7 @@ export default function Profile() {
 
                 <div style={{ display: "flex", flexDirection: 'row', marginLeft: 13 }}>
                   <StarIcon />
-                  <div style={{ fontFamily: 'poppins', marginLeft: 5, fontSize: 18, }}>{rating}</div>
+                  <div style={{ fontFamily: 'poppins', marginLeft: 5, fontSize: 18, }}>576</div>
                 </div>
               </div>
             </div>
