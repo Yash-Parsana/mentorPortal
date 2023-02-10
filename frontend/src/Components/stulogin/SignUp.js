@@ -32,6 +32,15 @@ useEffect(() => {
         //console.log(value);
         setPassword(value);
     };
+    
+    const [mobile,setmobile] = useState("");
+
+
+    const handleMobileChange = (event) => {
+        const value = event.target.value;
+        //console.log(value);
+        setmobile(value);
+    };
 
     const handleConfirPass = (event) => {
         const value = event.target.value;
@@ -99,6 +108,12 @@ useEffect(() => {
                         handleChange={handleConfirPass}
                         type="password"
                         placeholder="Confirm Password"
+                    />
+                    <InputField
+                        handleChange={handleMobileChange}
+                        type="text"
+                        placeholder="mobile no"
+
                     />
                     {/* <span style={{ color: "red", marginLeft: '5px' }}>Please enter same password</span> */}
                     <div

@@ -20,6 +20,11 @@ class Pop extends React.Component {
       title: "",
       tagline: "",
       imglink: "",
+      desc:"",
+      speaker:"",
+      date:"",
+      duration:"",
+
       redirect: false,
     };
   }
@@ -154,7 +159,7 @@ class Pop extends React.Component {
               <div style={{ width: "-webkit-fill-available" }}>
                 <input
                   className="form-control input-field"
-                  name="Duration"
+                  name="duration"
                   title={"Duration of Event"}
                   onChange={(e) => this.handleChange(e)}
                   placeholder={"Ex: 45min"}
