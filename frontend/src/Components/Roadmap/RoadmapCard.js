@@ -19,8 +19,8 @@ export default function RoadmapCard(props) {
           <img src={rp.ImgLink} className="card-img-container" alt="..." />
         </div>
         <div>
-          {/* <Link to={{ pathname: `/viewRoadmap/${rp._id}` }}>{rp.title}</Link> */}
-          <div className="card-title-container">{rp.title}</div>
+           
+          <div className="card-title-container"><Link to={{ pathname: '/FullRoadmapShow' }}>{rp.title}</Link> </div>
           <div className="card-owner-container">{rp.desc}</div>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <div>

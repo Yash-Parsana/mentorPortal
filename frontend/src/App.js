@@ -33,6 +33,8 @@ import BecomeMenter from './Components/ProjectUpload/BecomeMenter';
 import Pop from './Components/UniversityProfile/Pop';
 import Roadmap from './Components/Roadmap/Roadmap';
 import Profile from './Components/Profile/Profile';
+import FullRoadmapShow from './Components/Roadmap/FullRoadmapShow';
+import FullEvent from './Components/Event/FullEvent';
 
 
 function App() {
@@ -49,7 +51,7 @@ function App() {
       <Route index path="/mentorevents" element={<MEvents/>} />
       <Route index path="/mentorhistory" element={<MHistory/>} />
       <Route index path="/mentorresources" element={<MResources/>} />
-    
+      <Route index path="/temp" element={<FullEvent/>} />
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />
       <Route index path="/event" element={<EventPage/>} />
@@ -59,6 +61,7 @@ function App() {
       <Route index path="/menteeprofile" element={<MyProfile/>} />
       <Route index path="/pop" element={<Pop/>} />
       <Route index path="/roadmap" element={<Roadmap/>} />
+      <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
       
       <Route index path="/becomementor" element={<BecomeMenter/>} />
 
