@@ -39,6 +39,7 @@ import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
 import LLogin from './Components/stulogin/Login';
 import SSignUp from './Components/stulogin/SignUp';
+import VoiceSearch from './Components/VoiceSearch/VoiceSearch';
 function App() {
   return (
     <div className="App">
@@ -46,6 +47,7 @@ function App() {
     <Routes>
       <Route index path="/" element={<Home/>} />
       <Route index path="/blog" element={<Blogs/>} />
+      <Route index path="/voice" element={<VoiceSearch/>} />
       <Route index path="/blogpage" element={<BlogPage/>} />
       <Route index path="/addblog" element={<AddBlog/>} />
       <Route index path="/myblog" element={<MyBlogs/>} />
