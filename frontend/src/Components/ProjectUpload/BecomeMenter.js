@@ -1,16 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { ReactDOM } from "react";
 import Header from "../Common/Header";
-import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { useParams } from "react-router-dom";
-// import Cookies from 'universal-cookie'
 export default function BecomeMenter() {
-
-//   const cookies = new Cookies();
-
-//  const UserId = cookies.get('userId')
 
     var [tags, setTags] = useState("");
   const [tagList, setTaglist] = useState([]);
@@ -59,27 +51,9 @@ export default function BecomeMenter() {
       inputTag.SubjectId = subId
 
       console.log(inputTag);
-      const res = await axios
-      .post(`http://localhost:5000/api/Project/add`,inputTag)
-      .catch((err)=> console.log(err));
-      const data = await res.data;
-      return data;
     }
-    const uploadProject = (e)=>{
-      e.preventDefault();
-      sendReq()
-        .then((data) => {
-        console.log(data)
-        projId = data.ProjectId 
-        console.log(projId);
-        sendReqToSet().then(()=>{
-          alert("project Uploaded!");
-          window.location.reload();
-        });
-        })
      
-       
-    }
+
     const setToTaglist = (e, k) => {
       if (e.keyCode == 13) {
         setTaglist([...tagList, k]);
@@ -99,32 +73,33 @@ export default function BecomeMenter() {
         e.target.value = "";
       }
     };
-    const sendReqToSet = async() => {
-      
-    const response = await axios.post(`http://localhost:5000/api/Project/getPlagarism`,
-    {
-        projectId : projId
-    }).catch((err) => console.log(err));
-    console.log("-----------here is avg");
-    console.log(response.data.avg);
-
-    const pRate = response.data.avg;
-    
-    const setPlagRes = await axios.put(`http://localhost:5000/api/Project/setPlga`,
-    {
-      projectId : projId,
-      PlagRate : pRate
-    }
-    ).catch((err)=>console.log(err));
-
-    } 
-
     return ( 
       <>
         <Header index="2"/>
        <div className="container " style={{fontFamily: 'poppins', marginTop: -30}}>
         <div className=" p-3 ">
-          <form  onSubmit={uploadProject} >
+          <form  >
+          <div className="form-group row">
+          <label
+            for="name"
+            style={{textAlign: 'left',}}
+            className="col-sm-2 col-form-label downn font-weight-bold"
+          >
+            <strong>Name:</strong>
+          </label>
+          <div className="col-sm-10">
+            <input
+            style={{paddingLeft: 15, paddingRight: 15}}
+              type="text"
+              className="form-control form-input"
+              name="FullName"
+              placeholder="Enter Your Full Name.."
+              onChange={handleChange}
+              value={inputTag.FullName}
+              required
+            />
+          </div>
+        </div>
           <div className="form-group row" style={{marginTop: -10}}>
           <label style={{textAlign: 'left',}} for="desc" className="col-sm-2 downn col-form-label">
             <strong>Introduce Yourself to Mentee's:</strong>
@@ -141,7 +116,29 @@ export default function BecomeMenter() {
           </div>
         </div>
 
-  
+        <div className="form-group row">
+        <label
+          for="name"
+          style={{textAlign: 'left',}}
+          className="col-sm-2 col-form-label downn font-weight-bold"
+        >
+          <strong>Mobile No:</strong>
+        </label>
+        <div className="col-sm-10">
+          <input
+          style={{paddingLeft: 15, paddingRight: 15}}
+            type="text"
+            className="form-control form-input"
+            name="qualifications"
+            placeholder="Enter Your Mobile No"
+            onChange={handleChange}
+            value={inputTag.mobile}
+            required
+          />
+        </div>
+      </div>
+
+
             <div className="form-group row">
               <label
                 for="name"
@@ -192,17 +189,17 @@ export default function BecomeMenter() {
                 style={{textAlign: 'left',}}
                 className="col-sm-2 col-form-label downn font-weight-bold"
               >
-                <strong>Industry:</strong>
+                <strong>Highest Education Qualifications:</strong>
               </label>
               <div className="col-sm-10">
                 <input
                 style={{paddingLeft: 15, paddingRight: 15}}
                   type="text"
                   className="form-control form-input"
-                  name="PName"
-                  placeholder="Enter Your Industry Name"
+                  name="qualifications"
+                  placeholder="Enter Your Qulalification"
                   onChange={handleChange}
-                  value={inputTag.PName}
+                  value={inputTag.qualifications}
                   required
                 />
               </div>
@@ -210,7 +207,30 @@ export default function BecomeMenter() {
 
             
   
-           
+            <div className="form-group row">
+            <label
+              for="name"
+              style={{textAlign: 'left',}}
+              className="col-sm-2 col-form-label downn font-weight-bold"
+            >
+              <strong>Institute Name:</strong>
+            </label>
+            <div className="col-sm-10">
+              <input
+              style={{paddingLeft: 15, paddingRight: 15}}
+                type="text"
+                className="form-control form-input"
+                name="institution"
+                placeholder="Enter Your Institute Name"
+                onChange={handleChange}
+                value={inputTag.institution}
+                required
+              />
+            </div>
+          </div>
+   
+
+
             <div class="form-group row" style={{marginTop: -10}}>
               <label style={{textAlign: 'left',}} for="inputPassword" class="col-sm-2 downn col-form-label">
                 <strong>Photo Link</strong>
@@ -222,29 +242,16 @@ export default function BecomeMenter() {
                   class="form-control form-input"
                   id="ProjectLink"
                   name="ProjectLink"
-                  value={inputTag.ProjectLink}
+                  value={inputTag.ProfilePhoto}
                   onChange={handleChange}
-                  placeholder="Project Upload"
+                  placeholder="Paste your profile photo link"
                   required
                 />
               </div>
             </div>
 
             
-            <div className="form-group row" style={{marginTop: -10}}>
-            <label style={{textAlign: 'left',}} for="desc" className="col-sm-2 downn col-form-label">
-                <strong>Tools:</strong>
-              </label>
-            <input
-                  className="form-control form-input"
-                  name="tag"
-                  id="tag"
-                  placeholder="Ex. Web Development"
-                  onKeyUp={(e) => setToTaglist(e, timeframe)}
-                  onChange={(e) => setTimeFrame(e.target.value)}
-                />
-                </div>
- 
+            
                 <div className="a_fillter">
 
                 <div className="tags">
@@ -295,11 +302,46 @@ export default function BecomeMenter() {
                           className="form-control form-input"
                           name="tag"
                           id="tag"
-                          placeholder="Ex. Web Development"
+                          placeholder="Ex. English"
                           onKeyUp={(e) => setToTaglist3(e, timeframe3)}
                           onChange={(e) => setTimeFrame3(e.target.value)}
                         />
                         </div>
+
+                        <div className="form-group row">
+            <label
+              for="name"
+              style={{textAlign: 'left',}}
+              className="col-sm-2 col-form-label downn font-weight-bold"
+            >
+              <strong>Highest Qualifications certificate:</strong>
+            </label>
+            <div className="col-sm-10">
+            <input style={{paddingLeft: 15, paddingRight: 15}}  className="form-control form-input" type="file" name="file"  placeholder="Enter Your Institute Name"
+            onChange={handleChange}
+            value={inputTag.certificate}
+            required  />
+              
+            </div>
+          </div>
+
+          <div className="form-group row">
+          <label
+            for="name"
+            style={{textAlign: 'left',}}
+            className="col-sm-2 col-form-label downn font-weight-bold"
+          >
+            <strong>Other Document which you want to shared:</strong>
+          </label>
+          <div className="col-sm-10">
+          <input style={{paddingLeft: 15, paddingRight: 15}}  className="form-control form-input" type="file" name="file"  placeholder="Enter Your Institute Name"
+          onChange={handleChange}
+          value={inputTag.others}
+            />
+            
+          </div>
+        </div>
+   
          
                         <div className="a_fillter">
         
@@ -319,7 +361,7 @@ export default function BecomeMenter() {
               
             <div className="justify-content align-center  mt-3 ">
               <div className="w-25" style={{textAlign: 'left'}}>
-              <button type="submit" style={{height:"41px", boxShadow: "2px -1px 32px 0px rgba(44,94,255,0.36)"}} onClick={uploadProject} className=" search-bar-button  m-auto " >
+              <button type="submit" style={{height:"41px", boxShadow: "2px -1px 32px 0px rgba(44,94,255,0.36)"}} className=" search-bar-button  m-auto " >
               Submit
             </button>        
                 

@@ -5,10 +5,10 @@ import "../Filter/Filter.css";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
-
+import { NavLink } from "react-router-dom";
 const EventCard = ({event}) => {
 
-    const { description, duration, image, mentor, name, speaker, time } = event;
+    const { description, duration, image, mentor, name, speaker, time,collegeName } = event;
     return (
         <>
 
@@ -23,9 +23,14 @@ const EventCard = ({event}) => {
                         <small>{duration}</small>
                     </Card.Text>
                     <Card.Text className='d-flex justify-content-center' style={{ opacity: 0.6 }}>
-                        <small>{time}</small>
+                        <small>{collegeName}</small>
                     </Card.Text>
-                    <Button variant="light" className='mt-2' style={{ marginLeft: '7.8rem' }}><ReadMoreIcon /> <small>Read More</small></Button>
+                    <NavLink
+                    className=""
+                    style={{ textDecoration: "none" }}
+                    to="/temp"
+                  >
+                    <Button variant="light" className='mt-2' style={{ marginLeft: '7.8rem' }}><ReadMoreIcon /> <small>Read More</small></Button></NavLink>
                 </Card.Body>
             </Card>
         </>

@@ -16,7 +16,7 @@ const EventPage = () => {
     // const [isHandi, setishan] = useState(false);
 
     const dispatch = useDispatch();
-    const [projects, setProjects] = useState();
+    // const [projects, setProjects] = useState();
     const { events } = useSelector(state => state.event)
 
 
@@ -44,11 +44,11 @@ const EventPage = () => {
 
     const [searchinput, searchinputUpdate] = useState("");
     const filter2 = () => {
-        let temp = [...projects];
+        let temp = [...events];
 
         if (searchinput != "") {
             temp = temp.filter((ele) => {
-                return ele.PName.toLowerCase().includes(searchinput.toLowerCase());
+                return ele.name.toLowerCase().includes(searchinput.toLowerCase());
             });
         }
 
@@ -75,7 +75,7 @@ const EventPage = () => {
 
         console.log("---r---");
         console.log(temp);
-        setProjects(temp);
+        
 
         // sessionStorage.setItem('searchinput', searchinput);
         // setFlag("true");

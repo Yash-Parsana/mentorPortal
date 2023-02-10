@@ -42,7 +42,7 @@ function Login() {
               <span>
                 <i class="fab fa-facebook"></i>
               </span>
-              <span>FreelanceHUB (Non-Dev.)</span>
+              <span></span>
             </div>
             <h1>Log In</h1>
             <p>It's not long before you embark on this journey! </p>

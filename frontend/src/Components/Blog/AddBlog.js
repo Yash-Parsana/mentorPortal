@@ -3,8 +3,29 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 import Header from '../Common/Header';
+import JoditEditor from "jodit-react"
+import { useRef } from "react"
 
 function AddBlog() {
+
+
+    const [content,setContent] =useState('')
+    const editor = useRef(null)
+    const config={
+        placeholder:"Start typing...",
+
+    }
+    
+    //handling file chagne event
+    // const handleFileChange=(event)=>{
+    //     console.log(event.target.files[0])
+    //     setImage(event.target.files[0])
+    // }
+
+    
+    const contentFieldChanaged = (data) => {
+        setContent({ data })
+    }
 
 
 
@@ -35,13 +56,12 @@ function AddBlog() {
 
                     <Form.Group className="mb-3">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control
-                            as="textarea"
-                            rows="3"
-                            placeholder="description"
-                            value={desc}
-                            onChange={({ target: { value } }) => setDesc(value)}
-                        />
+                        <JoditEditor
+                        ref={editor}
+                        value={content}
+config={config}
+                        onChange={(newContent) => contentFieldChanaged(newContent)}
+                    />
                     </Form.Group>
 
                     <Button variant="primary" type="submit">

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import InputField from "../Common/InputField";
 import google_logo from "../../Assets/Images/google.svg";
 import "./Signup.css";
+import { NavLink } from "react-router-dom";
 
 const SignUp = () => {
 
@@ -94,13 +95,24 @@ const SignUp = () => {
                         }}
                     >
                         <div>Already have an accounttt ?</div>
-                        <div
-                            style={{ color: "#2C5EFF", fontWeight: "bolder", marginLeft: 5 }}
-                        >
-                            Login in
-                        </div>
+                        <NavLink
+                    className=""
+                    style={{ textDecoration: "none" }}
+                    to="/login"
+                  ><div
+                  style={{ color: "#2C5EFF", fontWeight: "bolder", marginLeft: 5 }}
+              >
+                  Login in
+              </div>
+                  </NavLink>
+                        
                     </div>
                     <div style={{ textAlign: "center" }}>
+                    <NavLink
+                    className=""
+                    style={{ textDecoration: "none" }}
+                    to="/signup"
+                  >
                         <button
                             onClick={handleClick}
                             className="sign-in-button"
@@ -108,7 +120,8 @@ const SignUp = () => {
                         >
                             Sign In
                         </button>
-                    </div>
+  
+  </NavLink>                      </div>
                     <div style={{ textAlign: "center" }}>
                         <button
                             className="sign-in-with-google-button"

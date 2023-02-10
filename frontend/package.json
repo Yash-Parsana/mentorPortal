@@ -13,6 +13,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.3",
     "firebase": "^9.10.0",
+    "jodit-react": "^1.3.35",
     "material-icons-react": "^1.0.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
