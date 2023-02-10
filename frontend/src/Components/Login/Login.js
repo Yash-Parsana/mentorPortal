@@ -9,9 +9,39 @@ import './Login.css';
 //   padding: "0.5rem",
 // };
 
+import axios from "../../helpers/axios";
+import { useNavigate } from "react-router-dom";
+
+
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  let navigate = useNavigate();
+  const [error, setError] = useState();
+  // const submitLoginForm = async (e) => {
+  //   e.preventDefault();
+  //   const data = {
+  //     email: email,
+  //     password: pass,
+  //   };
+  //   console.log("res.data", data);
+  //   try {
+  //     const res = await axios.post("/auth/loginmentor", data);
+
+  //     if (res.status === 200) {
+  //       console.log("res.data", res.data);
+  //       navigate("/");
+  //     } else {
+  //       console.log("res.message", res.message);
+  //       setError(res.message);
+  //     }
+  //   } catch (err) {
+  //     console.log("error", err);
+  //   }
+
+  //   console.log("res.data", data);
+  // };
+
   // const cookies = new Cookies();
   // const sendReq = async () => {
   //   const res = await axios
@@ -130,6 +160,7 @@ export default function Login(props) {
                 </div>
                 <div style={{ textAlign: "center" }}>
                   <button
+                  // onClick={submitLoginForm}
                     type="submit"
                     className="sign-in-button"
                     style={{ width: "80%", height: "6vh", marginTop: 17 }}
