@@ -4,7 +4,7 @@ import Button from "../Common/Button";
 import Modal from "./PopUpFrom/Modal";
 import "./PopUpFrom/styles.css";
 import ProfileInputField from "../Profile/ProfileInputField";
-import axios from "axios";
+import axios from "../../helpers/axios";
 import { useNavigate } from "react-router-dom";
 import "./pop.css";
 import Cookies from "universal-cookie";
@@ -16,7 +16,6 @@ class Pop extends React.Component {
 
     this.state = {
       modal: false,
-      name: "",
       title: "",
       tagline: "",
       imglink: "",
@@ -72,13 +71,14 @@ class Pop extends React.Component {
   render() {
     const sendRequest = async () => {
       const res = await axios
-        .post("http://localhost:5000/api/events/addevent", {
+        .post("/events/addevent", {
+       
           name: this.state.title,
-          mentor: this.state.mentor,
-          time: this.state.date,
-          speaker: this.state.speaker,
-          duration: this.state.duration,
-          description: this.state.desc,          
+          mentor:"507f1f77bcf86cd799439011",
+          speaker:"507f1f77bcf86cd799439011",
+          duration:this.state.duration,
+          description:this.state.desc,
+          image:this.state.imglink
         })
         .catch((err) => console.log('err',err));
       const data = await res.data;

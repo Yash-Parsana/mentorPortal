@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import InputField from "../Common/InputField";
 import google_logo from "../../Assets/Images/google.svg";
 import "./Signup.css";
+import axios from "../../helpers/axios";
 import { NavLink } from "react-router-dom";
-
+import {  useNavigate } from "react-router-dom";
 const SignUp = () => {
-
+    const [error, setError] = useState();
+    let navigate = useNavigate()
 
     const [email, setEmail] = useState();
     const [pass, setPassword] = useState();
@@ -37,6 +39,29 @@ const SignUp = () => {
         }
         console.log('all fields', email, pass, confPass);
     }
+
+    const submitSignUpForm = async (e) => {
+        e.preventDefault();
+        if (email === undefined  || pass === undefined || confPass === undefined) {
+            window.alert('Please enter all fields');
+        }
+        console.log('all fields', email, pass, confPass);
+
+        const data = {
+            email: email,
+            password: pass
+        }
+
+        const res = await axios.post('/auth/mentorsignup', data)
+        if (res.status === 200) {
+            console.log("res.data", res.data)
+            navigate('/login')
+        } else {
+            console.log("res.message", res.message)
+            setError(res.message)
+        }
+    }
+
 
     return (
         <>
@@ -114,7 +139,7 @@ const SignUp = () => {
                     to="/signup"
                   >
                         <button
-                            onClick={handleClick}
+                        onClick={submitSignUpForm}
                             className="sign-in-button"
                             style={{ width: "80%", height: "6vh", marginTop: 17 }}
                         >
