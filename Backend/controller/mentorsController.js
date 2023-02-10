@@ -31,7 +31,7 @@ const getAllMentors = async (req, res, next) => {
 
     let users;
     try {
-        users = await mentor.find().populate('mentor');
+        users = await mentor.find();
     }
     catch (err) {
         return res.status(400).json({
