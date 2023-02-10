@@ -24,7 +24,6 @@ class Pop extends React.Component {
       speaker:"",
       date:"",
       duration:"",
-
       redirect: false,
     };
   }
@@ -65,7 +64,7 @@ class Pop extends React.Component {
 
   modalClose() {
     this.setState({
-      modalInputName: "",
+      title: "",
       modal: false,
     });
   }
@@ -73,20 +72,15 @@ class Pop extends React.Component {
   render() {
     const sendRequest = async () => {
       const res = await axios
-        .post("http://localhost:5000/api/professor/add", {
-          DepartName: this.state.modalInputName,
-          Email: this.state.modalEmail,
-          Pass: "Ankit",
-          Fname: this.state.modalInputName,
-          LName: "Vegad",
-          Degree: ["BTECH in Computer", "Phd ib Business"],
-          DoB: "11/02/2002",
-          Gender: this.state.modalPost,
-          DepartmentId: this.state.deptid,
-          ProfileImg: this.state.modalImgLink,
-          PubEmail: this.state.modalEmail,
+        .post("http://localhost:5000/api/events/addevent", {
+          name: this.state.title,
+          mentor: this.state.mentor,
+          time: this.state.date,
+          speaker: this.state.speaker,
+          duration: this.state.duration,
+          description: this.state.desc,          
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log('err',err));
       const data = await res.data;
       return data;
     };
@@ -103,7 +97,7 @@ class Pop extends React.Component {
           this.state.redirect && <navigate to="/event" replace={true} />;
         });
       this.modalClose();
-      refreshPage();
+      // refreshPage();
     };
     const { dept } = this.state;
     return (
@@ -183,7 +177,7 @@ class Pop extends React.Component {
               </div>
 
               <div className="facultypop">
-              Author/Speaker Name <span style={{ color: "red" }}>*</span>
+              Speaker Name <span style={{ color: "red" }}>*</span>
             </div>
 
             <div style={{ width: "-webkit-fill-available" }}>
@@ -196,6 +190,20 @@ class Pop extends React.Component {
                 value={this.state.speaker}
               />
             </div>
+            <div className="facultypop">
+            Mentor Name <span style={{ color: "red" }}>*</span>
+          </div>
+
+          <div style={{ width: "-webkit-fill-available" }}>
+            <input
+              className="form-control input-field"
+              name="mentor"
+              title={"mentor of Event"}
+              onChange={(e) => this.handleChange(e)}
+              placeholder={"Ex: Dharmesh Vala"}
+              value={this.state.mentor}
+            />
+          </div>
 
             <div className="facultypop">
             Description <span style={{ color: "red" }}>*</span>
