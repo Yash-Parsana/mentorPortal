@@ -8,7 +8,7 @@ const jwt=require('jsonwebtoken')
 
 const studentSignUp = async (req, res, next) => {
 
-    const { name, email, mobile, password } = req.body;
+    const { name, email, mobile, password,interest } = req.body;
 
     try {
         let userExist = await studentModel.findOne({ email: email })
@@ -24,6 +24,7 @@ const studentSignUp = async (req, res, next) => {
             newUser.email = email
             newUser.mobile = mobile
             newUser.password = password
+            newUser.interest = interest
 
             await newUser.save();
             return res.json({
