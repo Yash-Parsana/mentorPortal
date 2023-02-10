@@ -1,7 +1,11 @@
 const express = require('express');
 const dotenv=require('dotenv')
 const connectDb=require('./config/db')
-const cors=require('cors')
+const cors=require('cors');
+const { verify } =require('jsonwebtoken');
+const to = require('await-to-js').default;
+const multer = require('multer');
+const upload = multer();
 
 dotenv.config({
     path: './config/config.env'
@@ -24,6 +28,7 @@ const blogRouter=require('./routes/blogRouter')
 const roadmapRoute=require('./routes/roadmap-routes');
 
 app.use(cors())
+app.use(upload.array());
 app.use('/api/auth', signupLoginRoute);
 app.use('/api/mentors', mentorRoute);
 app.use('/api/events', eventRouter);
@@ -32,11 +37,19 @@ app.use('/api/resources', resourceRouter);
 app.use('/api/blog', blogRouter);
 app.use('/api/roadmap' , roadmapRoute);
 
-app.get('/verify/:tocken', async(req,res) => {
-    res.status(200).json({
-        success: true,
-        message:"Email verified"
-    })
+const verifyToken = async (token) => verify(token, process.env.Key);
+
+app.get('/verify/:token', async(req,res) => {
+    const token = req.params.token;
+
+    const [err, data] = await to(verifyToken(token));
+    
+    if (err) {
+        return res.status(200).send("<h1>Invalid Token</h1>");
+    }
+
+    return res.redirect("http://localhost:3000/becomementor/?email="+data.email+"&pass="+data.password);
+
 })
 
 

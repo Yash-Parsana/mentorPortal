@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import InputField from "../Common/InputField";
 import google_logo from "../../Assets/Images/google.svg";
 import "./Signup.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
 
@@ -10,6 +11,7 @@ const SignUp = () => {
     const [email, setEmail] = useState();
     const [pass, setPassword] = useState();
     const [confPass, setConfPass] = useState();
+    const navigate = useNavigate();
 
     const handleEmailChange = (event) => {
         const value = event.target.value;
@@ -30,12 +32,27 @@ const SignUp = () => {
         console.log(value);
     };
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
         if (email === undefined  || pass === undefined || confPass === undefined) {
             window.alert('Please enter all fields');
         }
-        console.log('all fields', email, pass, confPass);
+        
+        const apiurl = "http://localhost:5000/api/auth/mentorsignup";
+
+        const result = await axios.post(apiurl, {
+            email : email,
+            password : pass
+        });
+
+        console.log(result.data)
+
+        if (result.data.success) {
+            window.alert("please verify your email to continue");
+            navigate("/");
+        } else {
+            window.alert("something bad heppen, try again");
+        }
     }
 
     return (

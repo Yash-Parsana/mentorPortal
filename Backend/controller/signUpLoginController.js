@@ -62,7 +62,7 @@ const mentorSignUp= async (req, res,next) => {
                 email: email,
                 password:pass
             }
-            const token=jwt.sign(jsonObj,process.env.Key,{expiresIn:10*60})
+            const token=jwt.sign(jsonObj,process.env.Key,{expiresIn:"2h"})
             console.log("token generated: ", token);
             
             const link = "http://localhost:5000/" + "verify/" + token;
