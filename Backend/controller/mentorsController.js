@@ -54,7 +54,7 @@ const getMentorById = async (req, res, next) => {
     const userId = id.id
     let user;
     try {
-        user = await mentor.find({ _id: userId }).populate('mentor')
+        user = await mentor.find({ _id: userId })
     }
     catch (err) {
         res.status(400).json({

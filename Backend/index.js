@@ -4,13 +4,20 @@ const connectDb=require('./config/db')
 const cors=require('cors');
 const { verify } =require('jsonwebtoken');
 const to = require('await-to-js').default;
-const multer = require('multer');
-const upload = multer();
 
 dotenv.config({
     path: './config/config.env'
 });
 const app = express();
+
+app.use(cors());
+
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 app.use(express.json([]))
 app.use(express.json({
@@ -27,8 +34,6 @@ const resourceRouter=require('./routes/resourcesRouter')
 const blogRouter=require('./routes/blogRouter')
 const roadmapRoute=require('./routes/roadmap-routes');
 
-app.use(cors())
-app.use(upload.array());
 app.use('/api/auth', signupLoginRoute);
 app.use('/api/mentors', mentorRoute);
 app.use('/api/events', eventRouter);
