@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SideBarOption from "./SideBarOption";
 import { useNavigate } from "react-router-dom";
-import MyProjects from "./MyProjects";
 import Profile from "./Profile";
 import axios from "axios";
 // import Cookies from 'universal-cookie'
