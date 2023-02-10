@@ -6,12 +6,10 @@ export const login = (user) => {
     return async (dispatch) => {
         dispatch({ type: authConstants.LOGIN_REQUEST })
         const res = await axios.post('/auth/signup', user)
-
         if (res.status === 200) {
-            const { user, role } = res.data
+            const { user, role } = res.data.response
             localStorage.setItem('role', role)
             localStorage.setItem('user', JSON.stringify(user))
-            console.log('resssss', res)
             dispatch({
                 type: authConstants.LOGIN_SUCCESS,
                 payload: {

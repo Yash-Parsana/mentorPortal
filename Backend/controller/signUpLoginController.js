@@ -5,8 +5,10 @@ const User = require('../models/UserModel');
 
 const signUp = async (req, res, next) => {
 
-    const { name, email, mobile, password } = req.body;
-
+    const { email, mobile, password } = req.body;
+    // const { email, mobile, password } = req.body;
+    const name = email.split('@', 1);
+    console.log('name', name);
     try {
         let userExist = await User.findOne({ email: email })
         if (userExist) {
@@ -31,7 +33,7 @@ const signUp = async (req, res, next) => {
         }
         else {
             let newUser = new User();
-            newUser.name = name
+            newUser.name = name[0]
             newUser.email = email
             newUser.moblie = mobile
             newUser.password = password

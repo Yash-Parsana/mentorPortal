@@ -11,6 +11,8 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import EventCard from "../Event/EventCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEventBymentorId, getAllEvents } from "../../actions/event.action";
 
 // import Popup from 'reactjs-popup';
 
@@ -21,6 +23,28 @@ function MEvents() {
   const [timeframe, setTimeFrame] = useState("");
 
   const [timeframe2, setTimeFrame2] = useState("");
+
+  const mentor = localStorage.getItem('user');
+  // console.log('user', mentor);
+  const dispatch = useDispatch();
+
+  // const { events } = useSelector(state => state.event)
+
+  const { user, isUserLoggedIn } = useSelector(state => state.auth)
+  console.log('qwertyui', mentor)
+
+
+  // useEffect(() => {
+  //   // dispatch(getAllEventBymentorId(mentor._id))
+  //   dispatch(getAllEventBymentorId('633ffad9c7b5df91d6174f54'))
+  // }, [])
+
+  const { events } = useSelector(state => state.event)
+
+
+  useEffect(() => {
+    dispatch(getAllEvents())
+  }, [])
 
   //  const cookies = new Cookies();
   //  const UserType = cookies.get('userType');
@@ -49,7 +73,7 @@ function MEvents() {
       e.target.value = "";
     }
   };
-  
+
   const setToExplist = (e, k) => {
     if (e.keyCode == 13) {
       setExplist([...tagList, k]);
@@ -136,60 +160,60 @@ function MEvents() {
 
             {/* options */}
             <div
-            className="editing"
-            style={{ position: "sticky", top: "130px", padding: "10px" }}
-          >
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorpage"
+              className="editing"
+              style={{ position: "sticky", top: "130px", padding: "10px" }}
             >
-              <SideBarOption icon="person" title="Profile" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorpage"
+              >
+                <SideBarOption icon="person" title="Profile" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/dashboard"
-            >
-              <SideBarOption icon="dashboard" title="Dashboard" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/dashboard"
+              >
+                <SideBarOption icon="dashboard" title="Dashboard" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorevents"
-            >
-              <SideBarOption icon="event"  title="Events" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorevents"
+              >
+                <SideBarOption icon="event" title="Events" />
+              </NavLink>
 
-            <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/mentorresources"
-          >
-            <SideBarOption icon="book" title="resources" />
-          </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorresources"
+              >
+                <SideBarOption icon="book" title="resources" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorhistory"
-            >
-              <SideBarOption icon="history" title="History" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorhistory"
+              >
+                <SideBarOption icon="history" title="History" />
+              </NavLink>
 
 
-            
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/Logout"
-            >
-              <SideBarOption icon="logout" title="Logout" />
-            </NavLink>
-          </div>
+
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/Logout"
+              >
+                <SideBarOption icon="logout" title="Logout" />
+              </NavLink>
+            </div>
           </div>
           <div
             style={{
@@ -243,33 +267,41 @@ function MEvents() {
                 }}
               ></div>
             </div>
-   
 
-           
+
+
 
             <div className="container">
-            <div className="row">
-           events will come here
-           
-            </div>
-            </div>
-            
-          
-                <div
-                  style={{
-                    marginTop: 20,
-                    justifyContent: "end",
-
-                    display: "flex",
-                    marginBottom: "50px",
-                    marginRight:"55px"
-                  }}
-                >
-                  <Button title={"Request For Edit"} />
+              <div className="row">
+                <div className=' d-flex justify-content-around mt-5 mb-3' style={{ backgroundColor: 'aliceblue' }}>
+                  <div className='d-flex justify-content-around my-2 ' style={{ width: '80%' }}>
+                    {
+                      events && events.length > 0 &&
+                      events.map(event =>
+                        <EventCard event={event} />
+                      )
+                    }
+                  </div>
                 </div>
               </div>
-            
-            
+            </div>
+
+
+            <div
+              style={{
+                marginTop: 20,
+                justifyContent: "end",
+
+                display: "flex",
+                marginBottom: "50px",
+                marginRight: "55px"
+              }}
+            >
+              <Button title={"Request For Edit"} />
+            </div>
+          </div>
+
+
         </div>
       }
     </>

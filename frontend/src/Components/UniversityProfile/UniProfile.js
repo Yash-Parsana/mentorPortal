@@ -10,6 +10,8 @@ import { NavLink } from "react-router-dom";
 // import Cookies from 'universal-cookie'
 import { Navigate } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEventBymentorId } from "../../actions/event.action";
 
 // import Popup from 'reactjs-popup';
 
@@ -25,6 +27,8 @@ function UniProfile() {
   //  const UserType = cookies.get('userType');
 
   //  const CollegeId = cookies.get('uTypeId')
+
+ 
 
 
   const [showw, setshoww] = useState("false");
@@ -48,14 +52,14 @@ function UniProfile() {
       e.target.value = "";
     }
   };
-  
+
   const setToExplist = (e, k) => {
     if (e.keyCode == 13) {
       setExplist([...tagList, k]);
       e.target.value = "";
     }
   };
-  const [user, setUser] = useState();
+  // const [user, setUser] = useState();
 
   const sendRequest = async () => {
     const res = await axios
@@ -66,9 +70,9 @@ function UniProfile() {
     console.log("-----");
     return data;
   };
-  useEffect(() => {
-    sendRequest().then((data) => setUser(data.mentors));
-  }, []);
+  // useEffect(() => {
+  //   sendRequest().then((data) => setUser(data.mentors));
+  // }, []);
 
   return (
     <>
@@ -135,60 +139,60 @@ function UniProfile() {
 
             {/* options */}
             <div
-            className="editing"
-            style={{ position: "sticky", top: "130px", padding: "10px" }}
-          >
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorpage"
+              className="editing"
+              style={{ position: "sticky", top: "130px", padding: "10px" }}
             >
-              <SideBarOption icon="person" title="Profile" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorpage"
+              >
+                <SideBarOption icon="person" title="Profile" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/dashboard"
-            >
-              <SideBarOption icon="dashboard" title="Dashboard" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/dashboard"
+              >
+                <SideBarOption icon="dashboard" title="Dashboard" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorevents"
-            >
-              <SideBarOption icon="event" title="Events" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorevents"
+              >
+                <SideBarOption icon="event" title="Events" />
+              </NavLink>
 
-            <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/mentorresources"
-          >
-            <SideBarOption icon="book" title="resources" />
-          </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorresources"
+              >
+                <SideBarOption icon="book" title="resources" />
+              </NavLink>
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorhistory"
-            >
-              <SideBarOption icon="history" title="History" />
-            </NavLink>
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/mentorhistory"
+              >
+                <SideBarOption icon="history" title="History" />
+              </NavLink>
 
 
-            
 
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/Logout"
-            >
-              <SideBarOption icon="logout" title="Logout" />
-            </NavLink>
-          </div>
+
+              <NavLink
+                className=""
+                style={{ textDecoration: "none", color: "black" }}
+                to="/Logout"
+              >
+                <SideBarOption icon="logout" title="Logout" />
+              </NavLink>
+            </div>
           </div>
           <div
             style={{
