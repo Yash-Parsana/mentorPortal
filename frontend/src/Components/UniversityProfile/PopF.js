@@ -4,7 +4,7 @@ import Button from "../Common/Button";
 import Modal from "./PopUpFrom/Modal";
 import "./PopUpFrom/styles.css";
 import ProfileInputField from "../Profile/ProfileInputField";
-import axios from "axios";
+import axios from "../../helpers/axios";
 import { useNavigate } from "react-router-dom";
 import "./pop.css";
 import Cookies from "universal-cookie";
@@ -16,7 +16,6 @@ class Pop extends React.Component {
 
     this.state = {
       modal: false,
-      name: "",
       title: "",
       tagline: "",
       imglink: "",
@@ -73,18 +72,14 @@ class Pop extends React.Component {
   render() {
     const sendRequest = async () => {
       const res = await axios
-        .post("http://localhost:5000/api/professor/add", {
-          DepartName: this.state.modalInputName,
-          Email: this.state.modalEmail,
-          Pass: "Ankit",
-          Fname: this.state.modalInputName,
-          LName: "Vegad",
-          Degree: ["BTECH in Computer", "Phd ib Business"],
-          DoB: "11/02/2002",
-          Gender: this.state.modalPost,
-          DepartmentId: this.state.deptid,
-          ProfileImg: this.state.modalImgLink,
-          PubEmail: this.state.modalEmail,
+        .post("/events/add", {
+       
+          name: this.state.title,
+          mentor:"507f1f77bcf86cd799439011",
+          speaker:"507f1f77bcf86cd799439011",
+          duration:this.state.duration,
+          description:this.state.desc,
+          image:this.state.imglink
         })
         .catch((err) => console.log(err));
       const data = await res.data;
