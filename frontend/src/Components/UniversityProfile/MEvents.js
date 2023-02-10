@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import EventCard from "../Event/EventCard";
+import PopF from "./PopF";
 
 // import Popup from 'reactjs-popup';
 
@@ -266,10 +267,11 @@ function MEvents() {
                   }}
                 >
                   <Button title={"Request For Edit"} />
+
                 </div>
               </div>
             
-            
+            <PopF/>
         </div>
       }
     </>
