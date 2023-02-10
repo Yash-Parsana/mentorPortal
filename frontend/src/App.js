@@ -25,7 +25,6 @@ import MEvents from './Components/UniversityProfile/MEvents';
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
-import Profile from './Components/Profile/Profile';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
 import MResources from './Components/UniversityProfile/MResources';
 import StudentProfile from './Components/Profile/StudentProfile';
@@ -33,6 +32,7 @@ import MyProfile from './Components/Profile/MyProfile';
 import BecomeMenter from './Components/ProjectUpload/BecomeMenter';
 import Pop from './Components/UniversityProfile/Pop';
 import Roadmap from './Components/Roadmap/Roadmap';
+import Profile from './Components/Profile/Profile';
 
 
 function App() {
