@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import InputField from "../Common/InputField";
 import google_logo from "../../Assets/Images/google.svg";
 import "./Signup.css";
@@ -19,6 +19,13 @@ useEffect(() => {
         //console.log(value);
         setEmail(value);
     };
+    const [int,setint] = useState("");
+    const handleIntChange = (event) => {
+        const value = event.target.value;
+        //console.log(value);
+        setint(value);
+    };
+
 
     const handlePassChange = (event) => {
         const value = event.target.value;
@@ -72,6 +79,12 @@ useEffect(() => {
                         handleChange={handleEmailChange}
                         type="email"
                         placeholder="Email"
+                    />
+
+                     <InputField
+                        handleChange={handleIntChange}
+                        type="text"
+                        placeholder="Intrest"
                     />
                     {/* <span style={{ color: "red", marginLeft: '5px' }}>Please enter your email</span> */}
                     {/* <br /> */}

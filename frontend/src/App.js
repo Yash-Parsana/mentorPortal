@@ -37,7 +37,8 @@ import FullRoadmapShow from './Components/Roadmap/FullRoadmapShow';
 import FullEvent from './Components/Event/FullEvent';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
-
+import LLogin from './Components/stulogin/Login';
+import SSignUp from './Components/stulogin/SignUp';
 function App() {
   return (
     <div className="App">
@@ -56,6 +57,8 @@ function App() {
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
       <Route index path="/login" element={<Login/>} />
       <Route index path="/signup" element={<SignUp/>} />
+      <Route index path="/slogin" element={<LLogin/>} />
+      <Route index path="/ssignup" element={<SSignUp/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
       <Route index path="/profile" element={<Profile/>} />
