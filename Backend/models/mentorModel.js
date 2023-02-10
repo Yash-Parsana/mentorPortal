@@ -2,51 +2,57 @@ const mongoose = require("mongoose")
 
 
 const mentorSchema = new mongoose.Schema({
-    mentor: {
-        type: mongoose.Schema.Types.ObjectId,
+    name: {
+        type: "String",
         required: true,
-        ref: 'User'
     },
-    photo: {
+    email: {
         type: String,
-    },
-    followers: {
-        type: Number,
-        required: true,
-        default:0
-    },
-    language: {
-        type: [String],
         required:true
     },
-    experience: {
+    moblle: {
         type: String,
         // required:true
     },
-    industry: {
+    password: {
         type: String,
-        required:true
+        required: true,
     },
-    domain: {
+    language: {
         type: [String],
-        required:true
-    },
-    tools: {
-        type: [String],
-        required:true
-    },
-    district: {
-        type: String,
-        required:true
-    },
-    state: {
-        type: String,
-        required:true
+        // required:true
     },
     intro: {
         type: String,
-        required:true
+        // required:true
+    },
+    qualification: {
+        type: [String],
+        
+    },
+    institute: {
+        type: String,
+        // required:true
+    },
+    photo: {
+        type: String,
+        // required:true
+    },
+    district: {
+        type: String,
+        // required:true
+    },
+    state: {
+        type: String,
+        // required:true
+    },
+    expertise: {
+        type:[String],
+        // required:true
+    },
+    docLink: {
+        type: [String],
+        // required:true
     }
-
 })
 module.exports = mongoose.model('mentor', mentorSchema);

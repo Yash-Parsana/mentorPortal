@@ -32,6 +32,13 @@ app.use('/api/resources', resourceRouter);
 app.use('/api/blog', blogRouter);
 app.use('/api/roadmap' , roadmapRoute);
 
+app.get('/verify/:tocken', async(req,res) => {
+    res.status(200).json({
+        success: true,
+        message:"Email verified"
+    })
+})
+
 
 const PORT = 5000||process.env.PORT;
 app.listen(PORT, console.log("Server is running")); 
