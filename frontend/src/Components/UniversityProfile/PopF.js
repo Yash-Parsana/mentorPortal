@@ -177,6 +177,35 @@ class Pop extends React.Component {
                 />
               </div>
 
+              <div className="facultypop">
+              Author/Speaker Name <span style={{ color: "red" }}>*</span>
+            </div>
+
+            <div style={{ width: "-webkit-fill-available" }}>
+              <input
+                className="form-control input-field"
+                name="speaker"
+                title={"speaker of Event"}
+                onChange={(e) => this.handleChange(e)}
+                placeholder={"Ex: Dharmesh Vala"}
+                value={this.state.speaker}
+              />
+            </div>
+
+            <div className="facultypop">
+            Description <span style={{ color: "red" }}>*</span>
+          </div>
+
+          <div style={{ width: "-webkit-fill-available" }}>
+            <input
+              className="form-control input-field"
+              name="desc"
+              title={"Description of Event"}
+              onChange={(e) => this.handleChange(e)}
+              placeholder={"Ex: Enter Description"}
+              value={this.state.desc}
+            />
+          </div>
 
               <div className="facultypop">Poster Link</div>
               <div style={{ width: "-webkit-fill-available" }}>
