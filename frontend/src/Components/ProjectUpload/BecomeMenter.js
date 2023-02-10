@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { ReactDOM } from "react";
 import Header from "../Common/Header";
-
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
