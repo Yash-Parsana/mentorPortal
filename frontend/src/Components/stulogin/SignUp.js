@@ -115,6 +115,20 @@ useEffect(() => {
                         placeholder="mobile no"
 
                     />
+
+                    <InputField
+                        handleChange={handleMobileChange}
+                        type="Gender"
+                        placeholder="MALE OR FEMALE"
+
+                    />
+
+                    <InputField
+                        handleChange={handleMobileChange}
+                        type="text"
+                        placeholder="Age"
+
+                    />
                     {/* <span style={{ color: "red", marginLeft: '5px' }}>Please enter same password</span> */}
                     <div
                         style={{
