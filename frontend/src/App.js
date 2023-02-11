@@ -17,6 +17,7 @@ import UniProfile from './Components/UniversityProfile/UniProfile';
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
+import Dashboard from "./Components/admindashboard/dash";
 
 import MEvents from './Components/UniversityProfile/MEvents';
 
@@ -69,10 +70,11 @@ function App() {
       <Route index path="/pop" element={<Pop/>} />
       <Route index path="/roadmap" element={<Roadmap/>} />
       <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
-      
+      <Route path="/:adminid" element={<Dashboard />} />
       <Route index path="/becomementor" element={<BecomeMenter/>} />
 
-    </Routes>
+      <Route index path="/dashboard" element={<Dashboard/>} />
+      </Routes>
   
     <Routes>  
   </Routes>   
