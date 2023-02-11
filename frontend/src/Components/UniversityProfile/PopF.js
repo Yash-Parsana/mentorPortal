@@ -10,6 +10,7 @@ import "./pop.css";
 // import Cookies from "universal-cookie";
 // import { Navigate } from "react-router-dom";
 
+
 function PopF() {
   const [name, setName] = useState("");
   const [duration, setDuration] = useState("");
@@ -34,6 +35,7 @@ function PopF() {
       console.log("res.data", res.data);
     } catch (err) {
       console.log("err", err);
+
     }
     modalClose();
   };

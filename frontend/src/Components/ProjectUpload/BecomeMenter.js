@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useDebugValue, useEffect } from "react";
 import { useState } from "react";
 import Header from "../Common/Header";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+
 export default function BecomeMenter() {
 
     var [tags, setTags] = useState("");
   const [tagList, setTaglist] = useState([]);
   
+
+  const navigate = useNavigate();
+
   const [timeframe, setTimeFrame] = useState("");
   const [timeframe2, setTimeFrame2] = useState("");
   const [timeframe3, setTimeFrame3] = useState("");
   const [tagList2, setTaglist2] = useState([]);
   
   const [tagList3, setTaglist3] = useState([]);
+
+  const [certificate, setCertificate] = useState();
+  const [other, setOther] = useState();
+
+  const queryParams = new URLSearchParams(window.location.search);
+
+  const email = queryParams.get("email");
+  const pass = queryParams.get("pass");
+
+  useEffect(() => {
+    console.log(email + " " + pass);
+  },[]);
+
+  const handleFileChangeCerti = (e) => {
+    if (!e.target.files) {
+      return;
+    }
+
+    setCertificate(e.target.files[0]);
+  };
+
+  const handleFileChangeOther = (e) => {
+    if (!e.target.files) {
+      return;
+    }
+
+    setOther(e.target.files[0]);
+  };
 
 
     var [ inputTag , setInputTag ] = useState({});
@@ -22,6 +55,42 @@ export default function BecomeMenter() {
       var str = event.target.value;
       setTags(str);
     };
+
+    const handleClick = async (e) => {
+      e.preventDefault();
+      console.log(inputTag);
+      if (inputTag.FullName === undefined || inputTag.Desc === undefined || 
+        inputTag.mobile === undefined || inputTag.dist === undefined || inputTag.state === undefined || inputTag.ProfilePhoto === undefined
+        || inputTag.qualifications === undefined || inputTag.institution === undefined || setTaglist2.length === 0 || setTaglist3.length === 0) {
+          window.alert("please enter all the info...");
+        } else {
+
+        const formdata = new FormData();  
+        formdata.append("name", inputTag.FullName);
+        formdata.append("email", email);
+        formdata.append("password", pass);
+        formdata.append("mobile", inputTag.mobile);
+        formdata.append("intro", inputTag.Desc);
+        formdata.append("qualification", inputTag.qualifications);
+        formdata.append("institute", inputTag.institution);
+        formdata.append("expertise", setTaglist3);
+        formdata.append("language", setTaglist2);
+        formdata.append("district", inputTag.dist);
+        formdata.append("state", inputTag.state);
+        formdata.append("photo", "");
+        formdata.append("docLink", "");
+
+        const result = await axios.post("http://localhost:5000/api/auth/savementor", formdata);
+        if (result.data.sucess) {
+        alert("Details Saved....");
+        navigate("/login");
+        } else {
+          console.log(result.data);
+          alert(result.data.message);
+        }
+      }
+
+    }
   
     const handleChange = (e) =>{
       console.log(e.target.name);
@@ -105,7 +174,7 @@ export default function BecomeMenter() {
             <strong>Introduce Yourself to Mentee's:</strong>
           </label>
           <div className="col-sm-10">
-            <textarea className="form-control f-textarea" id="desc" 
+            <textarea className="form-control f-textarea" id="Desc" 
             placeholder="Introduce Yourself to Mentee's" 
             rows="3"  
             name="Desc"
@@ -129,7 +198,7 @@ export default function BecomeMenter() {
           style={{paddingLeft: 15, paddingRight: 15}}
             type="text"
             className="form-control form-input"
-            name="qualifications"
+            name="mobile"
             placeholder="Enter Your Mobile No"
             onChange={handleChange}
             value={inputTag.mobile}
@@ -152,10 +221,10 @@ export default function BecomeMenter() {
                 style={{paddingLeft: 15, paddingRight: 15}}
                   type="text"
                   className="form-control form-input"
-                  name="PName"
+                  name="dist"
                   placeholder="Enter Your Distric Name"
                   onChange={handleChange}
-                  value={inputTag.PName}
+                  value={inputTag.dist}
                   required
                 />
               </div>
@@ -174,10 +243,10 @@ export default function BecomeMenter() {
                 style={{paddingLeft: 15, paddingRight: 15}}
                   type="text"
                   className="form-control form-input"
-                  name="PName"
+                  name="state"
                   placeholder="Enter Your State Name"
                   onChange={handleChange}
-                  value={inputTag.PName}
+                  value={inputTag.state}
                   required
                 />
               </div>
@@ -241,7 +310,7 @@ export default function BecomeMenter() {
                   type="text"
                   class="form-control form-input"
                   id="ProjectLink"
-                  name="ProjectLink"
+                  name="ProfilePhoto"
                   value={inputTag.ProfilePhoto}
                   onChange={handleChange}
                   placeholder="Paste your profile photo link"
@@ -318,7 +387,7 @@ export default function BecomeMenter() {
             </label>
             <div className="col-sm-10">
             <input style={{paddingLeft: 15, paddingRight: 15}}  className="form-control form-input" type="file" name="file"  placeholder="Enter Your Institute Name"
-            onChange={handleChange}
+            onChange={handleFileChangeCerti}
             value={inputTag.certificate}
             required  />
               
@@ -335,7 +404,7 @@ export default function BecomeMenter() {
           </label>
           <div className="col-sm-10">
           <input style={{paddingLeft: 15, paddingRight: 15}}  className="form-control form-input" type="file" name="file"  placeholder="Enter Your Institute Name"
-          onChange={handleChange}
+          onChange={handleFileChangeOther}
           value={inputTag.others}
             />
             
@@ -361,7 +430,7 @@ export default function BecomeMenter() {
               
             <div className="justify-content align-center  mt-3 ">
               <div className="w-25" style={{textAlign: 'left'}}>
-              <button type="submit" style={{height:"41px", boxShadow: "2px -1px 32px 0px rgba(44,94,255,0.36)"}} className=" search-bar-button  m-auto " >
+              <button onClick={handleClick} type="submit" style={{height:"41px", boxShadow: "2px -1px 32px 0px rgba(44,94,255,0.36)"}} className=" search-bar-button  m-auto " >
               Submit
             </button>        
                 

@@ -2,25 +2,24 @@ import React, { useState, useEffect } from 'react'
 import InputField from "../Common/InputField";
 import google_logo from "../../Assets/Images/google.svg";
 import "./Signup.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import axios from '../../helpers/axios';
+import { NavLink } from "react-router-dom";
 
 const SignUp = () => {
 
-
-    let navigate = useNavigate()
+useEffect(() => {
+    
+}, [])
 
     const [email, setEmail] = useState();
     const [pass, setPassword] = useState();
     const [confPass, setConfPass] = useState();
-    const [error, setError] = useState();
 
     const handleEmailChange = (event) => {
         const value = event.target.value;
         //console.log(value);
         setEmail(value);
     };
-    const [int, setint] = useState("");
+    const [int,setint] = useState("");
     const handleIntChange = (event) => {
         const value = event.target.value;
         //console.log(value);
@@ -33,8 +32,8 @@ const SignUp = () => {
         //console.log(value);
         setPassword(value);
     };
-
-    const [mobile, setmobile] = useState("");
+    
+    const [mobile,setmobile] = useState("");
 
 
     const handleMobileChange = (event) => {
@@ -49,33 +48,14 @@ const SignUp = () => {
 
         console.log(value);
     };
-    const [name, setName] = useState("");
+     const [stu,setstu] = useState([]);
     const handleClick = (e) => {
         e.preventDefault();
-        if (email === undefined || pass === undefined || confPass === undefined) {
+        if (email === undefined  || pass === undefined || confPass === undefined) {
             window.alert('Please enter all fields');
         }
         console.log('all fields', email, pass, confPass);
 
-    }
-
-    const submitSignUpForm = async () => {
-        const data = {
-            email: email,
-            password: pass,
-            interest: [int],
-            mobile: mobile,
-            name: name
-        }
-
-        const res = await axios.post('/auth/studentsignup', data)
-        if (res.status === 200) {
-            console.log("res.data", res.data)
-            navigate('/login')
-        } else {
-            console.log("res.message", res.message)
-            setError(res.message)
-        }
     }
 
     return (
@@ -109,13 +89,8 @@ const SignUp = () => {
                         type="email"
                         placeholder="Email"
                     />
-                    <InputField
-                        handleChange={(e) => { setName(e.target.value) }}
-                        type="text"
-                        placeholder="Name"
-                    />
 
-                    <InputField
+                     <InputField
                         handleChange={handleIntChange}
                         type="text"
                         placeholder="Intrest"
@@ -141,7 +116,6 @@ const SignUp = () => {
 
                     />
                     {/* <span style={{ color: "red", marginLeft: '5px' }}>Please enter same password</span> */}
-                    <span style={{ color: "red", marginLeft: '5px' }}>{error && error}</span>
                     <div
                         style={{
                             textAlign: "center",
@@ -154,31 +128,32 @@ const SignUp = () => {
                     >
                         <div>Already have an accounttt ?</div>
                         <NavLink
-                            className=""
-                            style={{ textDecoration: "none" }}
-                            to="/login"
-                        ><div
-                            style={{ color: "#2C5EFF", fontWeight: "bolder", marginLeft: 5 }}
-                        >
-                                Login in
-                            </div>
-                        </NavLink>
-
+                    className=""
+                    style={{ textDecoration: "none" }}
+                    to="/login"
+                  ><div
+                  style={{ color: "#2C5EFF", fontWeight: "bolder", marginLeft: 5 }}
+              >
+                  Login in
+              </div>
+                  </NavLink>
+                        
                     </div>
                     <div style={{ textAlign: "center" }}>
-                        <NavLink
-                            className=""
-                            style={{ textDecoration: "none" }}
+                    <NavLink
+                    className=""
+                    style={{ textDecoration: "none" }}
+                    to="/signup"
+                  >
+                        <button
+                            onClick={handleClick}
+                            className="sign-in-button"
+                            style={{ width: "80%", height: "6vh", marginTop: 17 }}
                         >
-                            <button
-                                onClick={submitSignUpForm}
-                                className="sign-in-button"
-                                style={{ width: "80%", height: "6vh", marginTop: 17 }}
-                            >
-                                Sign Up
-                            </button>
-
-                        </NavLink>                      </div>
+                            Sign In
+                        </button>
+  
+  </NavLink>                      </div>
                     <div style={{ textAlign: "center" }}>
                         <button
                             className="sign-in-with-google-button"
