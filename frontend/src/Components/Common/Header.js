@@ -5,8 +5,15 @@ import "../GeneralCSS/main.css"
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
+import Languageoption from '../multilang/language-dropdown'
+import {useTranslation} from 'react-i18next'
+import i18next from "i18next"
 
 export default function Header(props) {
+  const {t} = useTranslation();
+  const handleClick=(e)=>{
+      i18next.changeLanguage(e.target.value)
+  }
 
   const popover = (
     <Popover id="popover-basic">
@@ -29,8 +36,10 @@ export default function Header(props) {
   );
   let index = props.index;
   console.log('index', index);
+
   return (
     <>
+    
       <div>
         <div className="main-container-header">
           <div style={{}}>
@@ -50,45 +59,45 @@ export default function Header(props) {
               <div className="tab-container">
                 <NavLink className=
                   {(index === 1) ? "nav-link active black" : "nav-link"} to="/mentor">
-                  Find Mentor
+                 {t("Find Mentor")}
                 </NavLink>
               </div>
 
               <div className="tab-container">
                 <NavLink className=
                 {(index===2)? "nav-link active black" : "nav-link" } to="/event">
-                  Events
+                  {t("Events")}
                 </NavLink>
               </div>
 
               <div className="tab-container">
                 <NavLink className={(index === 3) ? "nav-link active" : "nav-link"} to="/blog">
-                  Blog
+                {t("Blog")}
                 </NavLink>
               </div>
               <div className="tab-container">
                 <NavLink className={(index == 4) ? "nav-link active" : "nav-link"} to="/roadmap">
-                  Roadmap
+                  {t("Roadmap")}
                 </NavLink>
               </div>
               <div className="tab-container">
                 <NavLink className={(index == 5) ? "nav-link active" : "nav-link"} to="/community">
-                  Community
+                  {t("Community")}
                 </NavLink>
               </div>
               <div className="tab-container">
                 <NavLink className={(index == 6) ? "nav-link active" : "nav-link"} to="/resources">
-                  Resources
+                  {t("Resources")}
                 </NavLink>
               </div>
               <div className="tab-container">
                 <NavLink className={(index == 7) ? "nav-link active" : "nav-link"} to="/aboutus">
-                  About
+                  {t("About")}
                 </NavLink>
               </div>
               <div className="tab-container">
                 <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
-                  Contact
+                 {t("Contact")}
                 </NavLink>
               </div>
               
@@ -130,6 +139,7 @@ export default function Header(props) {
         </div>
         <hr className="horizontal-line"></hr>
       </div>
+      <Languageoption onChange={(e)=> handleClick(e)}/>
     </>
   );
 }
