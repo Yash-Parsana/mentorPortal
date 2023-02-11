@@ -29,7 +29,7 @@ function Me(props) {
                   <div className='mid'>
                     <div className='mentor-name'>
                       <div class="mentor-name ">
-                        <a href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="menter-link">
+                        <a href="/mentorprofile" target="_blank" class="menter-link">
                           <h2 class="" style={{ fontWeight: "bold" }}>
                             {props.name}
                           </h2></a>
