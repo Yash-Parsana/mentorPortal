@@ -29,7 +29,7 @@ export default function Login(props) {
 
       if (res.status === 200) {
         console.log("res.data", res.data);
-        navigate("/");
+        navigate("/event");
       } else {
         console.log("res.message", res.message);
         setError(res.message);
