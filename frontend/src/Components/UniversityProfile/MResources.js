@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import EventCard from "../Event/EventCard";
+import Addresources from "./Addresources";
 
 // import Popup from 'reactjs-popup';
 function MResources() {
@@ -245,8 +246,7 @@ function MResources() {
             ></div>
           </div>
  
-
-         
+   
 
           <div className="container">
           <div className="row">
@@ -266,7 +266,8 @@ function MResources() {
                   marginRight:"55px"
                 }}
               >
-                <Button title={"Add new Resources"} />
+                  <Addresources/>
+         
               </div>
             </div>
           
