@@ -346,7 +346,7 @@ export default function Home() {
                 {mentors.length > 0 && mentors?.map((mentor) => {
                     return (
                         <Me style={{ marginTop: "15px" }}
-                            name={mentor?.mentor?.name}
+                            name={mentor?.name}
                             intro={mentor?.intro}
                         />
                     )
