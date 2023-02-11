@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "../../helpers/axios";
 import './Login.css';
+import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 // import Cookies from "universal-cookie";
 
@@ -12,37 +14,36 @@ import './Login.css';
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  // const cookies = new Cookies();
-  // const sendReq = async () => {
-  //   const res = await axios
-  //     .post(`http://localhost:5000/api/user/login`, {
-  //       Email: email,
-  //       Password: pass,
-  //     })
-  //     .catch((err) => console.log(err));
-  //   const data = await res.data;
-  //   return data;
-  // };
+  
+  let navigate = useNavigate();
 
-  // const loginUser = (event) => {
-  //   event.preventDefault();
-  //   console.log(email, pass);
-  //   sendReq().then((data) => {
-  //     const cookies = new Cookies();
 
-  //     cookies.set("authToken", data.authToken, { path: "/" });
-  //     cookies.set("userId", data.userId, { path: "/" });
-  //     cookies.set("userType", data.userType, { path: "/" });
-  //     cookies.set("uTypeId", data.uTypeId, { path: "/" });
-  //     console.log(data);
+  const [error, setError] = useState();
 
-  //     if (data.userType == "College-admin")
-  //       window.location.href = "/collegeprofile";
-  //     else if (data.userType == "Student") window.location.href = "/myProfile";
-  //     else if (data.userType == "Professor") window.location.href = "/faculty";
-  //     else window.location.href = "/";
-  //   });
-  // };
+  const submitLoginForm = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: email,
+      password: pass,
+    };
+    console.log("res.data", data);
+    try {
+      const res = await axios.post("/auth/loginmentor", data);
+
+      if (res.status === 200) {
+        console.log("res.data", res.data);
+        navigate("/");
+      } else {
+        console.log("res.message", res.message);
+        setError(res.message);
+      }
+    } catch (err) {
+      console.log("error", err);
+    }
+
+    console.log("res.data", data);
+  };
+
   return (
     <>
       {/* <div className="row justify-content-center align-items-center  " style={search}> */}
@@ -72,7 +73,7 @@ export default function Login(props) {
         >
           <div className="w-100 text-center">
             <form className="form-inline" 
-            // onSubmit={loginUser}
+            onSubmit={submitLoginForm}
             >
               <div className="col m-auto">
                 <div
